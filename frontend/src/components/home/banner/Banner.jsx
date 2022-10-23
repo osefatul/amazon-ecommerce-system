@@ -3,10 +3,11 @@ import Carousel from 'react-material-ui-carousel'
 import "./banner.css";
 
 const data = [
-    "https://rukminim1.flixcart.com/flap/1680/280/image/1defb861e409319b.jpg?q=50",
+    "https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg",
     " https://rukminim1.flixcart.com/flap/1680/280/image/685712c6cefb3c02.jpg?q=50",
     "https://rukminim1.flixcart.com/flap/1680/280/image/8d4150cc4f3f967d.jpg?q=50",
-    "https://rukminim1.flixcart.com/flap/1680/280/image/685712c6cefb3c02.jpg?q=50"
+    "https://m.media-amazon.com/images/I/61BvxKSpy3L._SX3000_.jpg",
+    "https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg"
 ]
 
 // console.log(data);

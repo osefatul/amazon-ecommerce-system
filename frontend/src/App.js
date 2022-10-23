@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/home/Home';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
 
       <Routes>
         <Route exact path="/" 
-        element={
+          element={
           <>
-          <Header/>
-          <Home/>
+            <Header/>
+            <Home/>
+            <Footer/>
           </>}/>
       </Routes>
     </div>

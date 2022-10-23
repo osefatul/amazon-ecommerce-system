@@ -17,8 +17,7 @@ import RightSide from './RightSide';
 // import { getProducts } from '../redux/actions/action';
 import { useSelector, useDispatch } from "react-redux";
 import { products } from '../../utils/productData';
-
-
+import {Search, Place} from '@mui/icons-material';
 // const usestyle = makeStyles({
 //     component: {
 //         marginTop: 10,
@@ -115,7 +114,6 @@ const Header = () => {
     }
 
     // for drawer
-
     const handelopen = () => {
         setDropen(true);
     }
@@ -137,19 +135,33 @@ const Header = () => {
                     <IconButton className="hamburgur" onClick={handelopen}>
                         <MenuIcon style={{ color: "#fff" }} />
                     </IconButton>
+
                         {/* here define the right header */}
                     <Drawer open={dropen} onClose={handleClosedr} >
                         <RightSide userlog={logoutuser} logclose={handleClosedr} />
                     </Drawer>
+
                     <div className="navlogo">
                         <NavLink to="/"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9mUF-Lvsk8J-mqEMq-thcWCEGJ9lszrWgSA&usqp=CAU" alt="logo" /> </NavLink>
                     </div>
+
+                    <div className='location'>
+                        <Place/>
+                        <div className='place'>
+                            <span className='delivery'>Deliver to</span>
+                            <span className='country'>Canada</span>
+                        </div>
+                    </div>
+                    
                     <div className="nav_searchbaar">
                         <input type="text" name=""
                             onChange={(e) => getText(e.target.value)}
                             placeholder="Search Your Products" />
+
                         <div className="search_icon">
-                            <i className="fas fa-search" id="search"></i>
+                            <i className="fas fa-search" id="search">
+                                <Search/>
+                            </i>
                         </div>
                         {
                             text &&
@@ -223,7 +235,7 @@ const Header = () => {
                     </div>
                     {/* <ToastContainer /> */}
                 </div>
-                
+
             </nav>
         </header>
     )
