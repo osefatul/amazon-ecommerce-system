@@ -3,6 +3,9 @@ import Banner from '../../components/home/banner/Banner'
 import Slide from '../../components/home/slide/Slide'
 import { Divider } from '@mui/material';
 import "./home.css"
+
+
+
 function Home() {
     return (
         <>
