@@ -23,16 +23,15 @@ const Banner = () => {
                 cycleNavigation={true}
                 infiniteLoop
                 interval={3000}
-                // navButtonsProps={{
-                //     style: {
-                //         background: "#fff",
-                //         color: "#494949",
-                //         borderRadius: 0,
-                //         marginTop: -22,
-                //         height: "104px",
-                //     }
-                // }}
-                
+                navButtonsProps={{
+                    style: {
+                        background: "#fff",
+                        color: "#494949",
+                        borderRadius: 0,
+                        marginTop: -130,
+                        height: "120px",
+                    }
+                }}
                 >
                 {
                     data.map((imag, i) => {

@@ -74,8 +74,15 @@
 
 @media (max-width:768px){
 
-    .center_img img{
+    .product_img{
         object-fit: cover;
-        height: 120px;
+        height: 100px;
     }
+
+    .product_img img {
+        width: 80px;
+        height: 80px;
+    }
+
+
 }

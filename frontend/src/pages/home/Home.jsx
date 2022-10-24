@@ -3,17 +3,21 @@ import Banner from '../../components/home/banner/Banner'
 import Slide from '../../components/home/slide/Slide'
 import { Divider } from '@mui/material';
 import "./home.css"
+import HeaderList from '../../components/headerList/HeaderList';
+
 
 
 
 function Home() {
     return (
         <>
+
             <div className="home_section">
 
                 <div className="banner_part">
                     <Banner />
                 </div>
+
 
 
                 <div className='categories'>

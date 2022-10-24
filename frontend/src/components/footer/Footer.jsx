@@ -36,7 +36,8 @@ const Footer = () => {
                     <p>Instagram</p>
                 </div>
             </div>
-            <div className="lastdetails">
+
+            <div className="lastDetails">
                 <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" />
                 <p>Conditions of Use & Sale &nbsp; &nbsp;&nbsp;  Privacy Notice  &nbsp; &nbsp;&nbsp; Interest-Based Ads </p>
                 <p className='tag'>© 1996-{year}, Amazon.com, Inc. or its affiliates</p>

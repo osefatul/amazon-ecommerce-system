@@ -1,0 +1,28 @@
+.nav_list{
+    width: 120%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #232F3E;
+    color: white;
+    height: 35px;
+}
+
+.nav_list ul{
+    padding-left: 20px;;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.nav_list ul li {
+    padding:5px;
+}
+
+.nav_list ul li:hover{
+    border: 1px solid white;
+}
+

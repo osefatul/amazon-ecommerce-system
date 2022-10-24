@@ -17,21 +17,14 @@ import RightSide from './RightSide';
 // import { getProducts } from '../redux/actions/action';
 import { useSelector, useDispatch } from "react-redux";
 import { products } from '../../utils/productData';
-import {Search, Place} from '@mui/icons-material';
-// const usestyle = makeStyles({
-//     component: {
-//         marginTop: 10,
-//         marginRight: "-50px",
-//         width: "300px",
-//         padding: 50,
-//         height: "300px"
-//     },
-// })
+import {Search, Place, AddShoppingCart} from '@mui/icons-material';
+import HeaderList from '../headerList/HeaderList';
+
 
 
 const Header = () => {
 
-    // const classes = usestyle();
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [text, setText] = useState();
@@ -148,11 +141,16 @@ const Header = () => {
                     <div className='location'>
                         <Place/>
                         <div className='place'>
-                            <span className='delivery'>Deliver to</span>
+                            <span className='delivery'>Deliver to Sefatullah
+                            </span>
                             <span className='country'>Canada</span>
                         </div>
                     </div>
                     
+                </div>
+
+
+                <div className="center">
                     <div className="nav_searchbaar">
                         <input type="text" name=""
                             onChange={(e) => getText(e.target.value)}
@@ -183,38 +181,11 @@ const Header = () => {
 
 
                 <div className="right">
-                    <div className="nav_btn">
-                        <NavLink to="/login">Sign in</NavLink>
+
+                    <div className="rightButton"  onClick={handleClick}>
+                            <span>Hello, sign in</span>
+                            <p>Account & Lists</p>
                     </div>
-                    {
-                        // account ? 
-                        // <NavLink to="/buynow">
-                        //     <div className="cart_btn">
-                        //         <Badge badgeContent={account.carts.length} color="secondary">
-                        //             <i className="fas fa-shopping-cart" id="icon"></i>
-                        //         </Badge>
-
-                        //         <p>Cart</p>
-                        //     </div>
-                        // </NavLink> : 
-                        
-                        <NavLink to="/login">
-                            <div className="cart_btn">
-                                <Badge badgeContent={0} color="secondary">
-                                    <i className="fas fa-shopping-cart" id="icon"></i>
-                                </Badge>
-                                <p>Cart</p>
-                            </div>
-                        </NavLink>
-                    }
-
-                    {
-                        // account ?
-                        //     <Avatar className="avtar2"
-                        //         onClick={handleClick} title={account.fname.toUpperCase()}>{account.fname[0].toUpperCase()}</Avatar> :
-                            <Avatar className="avtar"
-                                onClick={handleClick} />
-                    }
 
                     <div className="menu_div">
                         <Menu
@@ -223,7 +194,14 @@ const Header = () => {
                             onClose={handleClose}
                             // className={classes.component}
                         >
-                            <MenuItem onClick={handleClose} style={{ margin: 10 }}>My account</MenuItem>
+                            <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12 }}>
+                                Sign in
+                            </MenuItem>
+
+                            <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12}}>
+                                My account
+                            </MenuItem>
+
                             {/* {
                             account ? 
                             <MenuItem 
@@ -233,10 +211,32 @@ const Header = () => {
                             <LogoutIcon style={{ fontSize: 16, marginRight: 3 }}  onClick={logoutuser} />   Logout</MenuItem> : ""} */}
                         </Menu>
                     </div>
-                    {/* <ToastContainer /> */}
+
+
+                    <div className='rightButton'>
+                        <span>Returns</span>
+                        <p>& Orders</p>
+                    </div>
+
+
+                    <div className="cart_btn">
+                        <span className="badge">3</span>
+                        <span className='cartIcon'>
+                            <AddShoppingCart sx={{fontSize:"28px"}}/>
+                        </span>
+                        <p>Cart</p>
+                    </div>
+
+
+
                 </div>
 
             </nav>
+
+            <div>
+                <HeaderList/>
+            </div>
+
         </header>
     )
 }

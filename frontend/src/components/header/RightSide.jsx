@@ -38,11 +38,11 @@ function RightSide({ userlog ,logclose}) {
                     // account ?
                     // <Avatar className="avtar2"
                     //         title={account.fname.toUpperCase()}>{account.fname[0].toUpperCase()}</Avatar> :
-                    <Avatar className="avtar"
-                    />
+                    <Avatar className="avtar"/>
                 }
                 {/* {account ? <h3>Hello, {account.fname.toUpperCase()}</h3> : ""} */}
             </div>
+
             <div className="nav_btn" 
             onClick={()=>logclose()}>
                 <NavLink to="/">Home</NavLink>
@@ -56,7 +56,7 @@ function RightSide({ userlog ,logclose}) {
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
                 <div className="flag">
                     <NavLink to="" style={{ marginTop: 14 }}>Settings</NavLink>
-                    <img src={imgd} alt="india flag" style={{ width: 35, marginLeft: 10 }} />
+                    <img src="https://cdn-icons-png.flaticon.com/512/555/555473.png" alt="india flag" style={{ width: 20, marginLeft: 20, marginTop:-4 }} />
                 </div>
 
                 {

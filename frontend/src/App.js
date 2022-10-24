@@ -6,6 +6,8 @@ import {
 import Home from './pages/home/Home';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import SignUp from './pages/auths/signUp/SignUp';
+import SignIn from './pages/auths/signIn/SignIn';
 
 function App() {
   return (
@@ -19,6 +21,11 @@ function App() {
             <Home/>
             <Footer/>
           </>}/>
+
+
+          <Route exact path="/signUp" element={<SignUp/>}/>
+          <Route exact path="/login" element={<SignIn/>}/>
+
       </Routes>
     </div>
   );
