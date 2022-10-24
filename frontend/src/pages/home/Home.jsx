@@ -19,7 +19,6 @@ function Home() {
                 </div>
 
 
-
                 <div className='categories'>
 
                     <div className="slide_part">

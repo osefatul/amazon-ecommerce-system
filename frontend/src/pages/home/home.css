@@ -18,6 +18,8 @@
 
 
 
+
+
 .categories{
     position: absolute;
     display: flex;
@@ -26,8 +28,9 @@
     align-items: center;
     position: relative;
     top: -300px;
-    z-index: 5;
-    width: 100%;
+    left: 40px;
+    z-index: 15;
+    width: 95%;
 }
 
 .slide_part{
