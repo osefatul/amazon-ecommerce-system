@@ -137,6 +137,11 @@ header nav .right .rightButton:hover{
 }
 
 
+.right .menu_div a{
+    text-decoration: none;
+}
+
+
 
 header nav .right .cart_btn{
     position: relative;

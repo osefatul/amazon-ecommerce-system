@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 // import { Logincontext } from '../context/Contextprovider';
 // import { ToastContainer, toast } from 'react-toastify';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -195,7 +195,9 @@ const Header = () => {
                             // className={classes.component}
                         >
                             <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12 }}>
-                                Sign in
+                                <NavLink to="/login"  style={{ textDecoration: 'none' }} >
+                                    Sign in
+                                </NavLink>
                             </MenuItem>
 
                             <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12}}>
