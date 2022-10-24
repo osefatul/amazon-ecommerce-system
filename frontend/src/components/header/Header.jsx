@@ -142,7 +142,7 @@ const Header = () => {
                     </Drawer>
 
                     <div className="navlogo">
-                        <NavLink to="/"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9mUF-Lvsk8J-mqEMq-thcWCEGJ9lszrWgSA&usqp=CAU" alt="logo" /> </NavLink>
+                        <NavLink to="/"> <img loading='lazy' src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" /> </NavLink>
                     </div>
 
                     <div className='location'>

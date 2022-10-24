@@ -1,7 +1,8 @@
 footer{
     position: relative;
-    top: 60px;
+    margin-top: -200px;
     background-color:#232F3E;
+    padding-bottom: 20px;
 }
 
 footer .footer_container{
@@ -33,7 +34,6 @@ footer .lastdetails{
     background-color: #131A22;
     height:20vh;
     color: grey;
-    padding-bottom: 5rem;
 }
 
 footer img{
@@ -61,7 +61,7 @@ footer .tag {
     .footer_container .forres{
         display: none;
     }
-   
+
 }
 @media (max-width:500px){
     .footer_container .forres{

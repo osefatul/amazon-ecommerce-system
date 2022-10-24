@@ -83,5 +83,22 @@ export const products = [
         description: '',
         discount: 'From ₹499', 
         tagline: 'Kubra, Nova & more' 
+    },
+    { 
+        id: 'product5',
+        url: 'https://rukminim1.flixcart.com/image/416/416/k3uhhu80/hair-dryer/n/m/t/nova-2800-w-professional-nhp-8220-original-imafmvwfhmzsxdrw.jpeg?q=70',
+        detailUrl: 'https://rukminim1.flixcart.com/image/416/416/k3uhhu80/hair-dryer/n/m/t/nova-2800-w-professional-nhp-8220-original-imafmvwfhmzsxdrw.jpeg?q=70', 
+        title: {
+            shortTitle: 'Trimmers, Dryers & more',
+            longTitle: 'Nova Professional NHP 8220 Hair Dryer  (1800 W, Multicolor)'
+        }, 
+        price: {
+            mrp: 1899,
+            cost: 1124,
+            discount: '40%'
+        },
+        description: '',
+        discount: 'From ₹499', 
+        tagline: 'Kubra, Nova & more' 
     }
 ]

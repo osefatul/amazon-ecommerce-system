@@ -39,13 +39,22 @@ const Slide = ({ title,}) => {
                 swipeable={true}
                 centerMode={true}
                 autoPlay={true}
-                autoPlaySpeed={4000}
+                autoPlaySpeed={3000}
                 keyBoardControl={true}
                 showDots={false}
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
                 containerClass="carousel-container"
+                navButtonsProps={{
+                    style: {
+                        background: "#fff",
+                        color: "#494949",
+                        borderRadius: 0,
+                        marginTop: -22,
+                        height: "104px",
+                    }
+                }}
             >
                 {
                     products.map((e) => {

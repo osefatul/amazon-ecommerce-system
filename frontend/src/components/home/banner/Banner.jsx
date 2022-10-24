@@ -4,8 +4,7 @@ import "./banner.css";
 
 const data = [
     "https://m.media-amazon.com/images/I/711Y9Al9RNL._SX3000_.jpg",
-    " https://rukminim1.flixcart.com/flap/1680/280/image/685712c6cefb3c02.jpg?q=50",
-    "https://rukminim1.flixcart.com/flap/1680/280/image/8d4150cc4f3f967d.jpg?q=50",
+    "https://m.media-amazon.com/images/I/61jovjd+f9L._SX3000_.jpg",
     "https://m.media-amazon.com/images/I/61BvxKSpy3L._SX3000_.jpg",
     "https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg"
 ]
@@ -15,23 +14,26 @@ const data = [
 const Banner = () => {
     return (
         <>
-
             <Carousel
                 className="carasousel"
                 autoPlay={true}
                 animation="slide"
                 indicators={false}
-                navButtonsAlwaysVisible={true}
+                // navButtonsAlwaysVisible={true}
                 cycleNavigation={true}
-                navButtonsProps={{
-                    style: {
-                        background: "#fff",
-                        color: "#494949",
-                        borderRadius: 0,
-                        marginTop: -22,
-                        height: "104px",
-                    }
-                }}>
+                infiniteLoop
+                interval={3000}
+                // navButtonsProps={{
+                //     style: {
+                //         background: "#fff",
+                //         color: "#494949",
+                //         borderRadius: 0,
+                //         marginTop: -22,
+                //         height: "104px",
+                //     }
+                // }}
+                
+                >
                 {
                     data.map((imag, i) => {
                         return (
