@@ -10,7 +10,7 @@ import HeaderList from '../../components/headerList/HeaderList';
 
 function Home() {
     return (
-        <>
+        <div className='homePage'>
 
             <div className="home_section">
 
@@ -56,7 +56,7 @@ function Home() {
 
             <Divider />
 
-        </>
+        </div>
     )
 }
 
