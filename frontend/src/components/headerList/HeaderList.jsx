@@ -21,30 +21,30 @@ function HeaderList() {
 
     // const { account, setAccount } = useContext(Logincontext);
 
-    const getdetailsvaliduser = async () => {
-        const res = await fetch("/validuser", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            credentials: "include"
-        });
+    // const getdetailsvaliduser = async () => {
+    //     const res = await fetch("/validuser", {
+    //         method: "GET",
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json"
+    //         },
+    //         credentials: "include"
+    //     });
 
-        const data = await res.json();
-        // console.log(data);
+    //     const data = await res.json();
+    //     // console.log(data);
 
-        if (res.status !== 201) {
-            console.log("first login");
-        } else {
-            // console.log("cart add ho gya hain");
-            // setAccount(data);
-        }
-    }
+    //     if (res.status !== 201) {
+    //         console.log("first login");
+    //     } else {
+    //         // console.log("cart add ho gya hain");
+    //         // setAccount(data);
+    //     }
+    // }
 
-    useEffect(() => {
-        getdetailsvaliduser();
-    }, []);
+    // useEffect(() => {
+    //     getdetailsvaliduser();
+    // }, []);
 
 
     // for logout

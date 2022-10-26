@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const generateAuthToken = require("../helpers/generateAuthToken");
 const {UserSchema} = require("../models/UserModel")
 
 
@@ -51,12 +52,12 @@ const createUser = async (req, res) => {
 
         const result = await newUser.save();
 
-        //Sending email to verify user.
-        await emailProcessor({
-                email,
-                type: "new-user-confirmation-required",
-                verificationLink: verificationURL + result._id + "/" + email,
-            });
+        // //Sending email to verify user.
+        // await emailProcessor({
+        //         email,
+        //         type: "new-user-confirmation-required",
+        //         verificationLink: verificationURL + result._id + "/" + email,
+        //     });
         
 
         console.log(result);
@@ -107,7 +108,37 @@ const verifyUser = async ( email, res) => {
 };
 
 
+// Get user data from database using its email - PURPOSE: LOGIN
+const getUserByEmail = async (req, res) => {
+
+    const { email, password } = req.body;
+
+    try {
+    //Check if email exists
+    const user = await UserSchema.findOne({ email });
+    !user && res.status(404).json({ message: "User not found" });
+
+
+    // if(!user.isVerified){
+    //     res.status(404).json({ message: "Please check your email for verification code..." });
+    // }
+
+    //Check if passwords match
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) return res.status(404).json({ message: "Wrong Password" });
+    
+    const token = generateAuthToken(user)
+
+    return res.status(200)
+    .json({ message: "Login successfully", accessJwtToken: token} );
+    } catch (error) {
+        console.log(error);
+    }
+    };
+
+
 module.exports = {
     createUser,
-    verifyUser
+    verifyUser,
+    getUserByEmail
 }

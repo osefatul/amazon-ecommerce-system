@@ -1,8 +1,9 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const {
     createUser,
-    verifyUser} = require("../controllers/authController")
+    verifyUser,
+    getUserByEmail} = require("../controllers/authController")
 
 
 
@@ -16,8 +17,6 @@ try {
     res.json({ status: "error", message: err.message });
 }
 });
-
-//-----------------------------------------------------------------------------
 
 
 //VERIFY JUST NOW REGISTERED USER
@@ -34,3 +33,19 @@ try {
         });
 }
 })
+
+
+//LOGIN USER
+router.post("/login", async (req, res) => {
+
+    try {
+        await getUserByEmail(req, res);
+    } catch (err) {
+        console.log(err);
+        res.json({ status: "error", message: err.message });
+    }
+});
+
+
+
+module.exports = router;

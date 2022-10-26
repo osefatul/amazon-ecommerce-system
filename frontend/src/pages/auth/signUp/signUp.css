@@ -14,7 +14,14 @@ section{
     align-items: center;
     padding-bottom: 10px;
 }
-
+/* " bg-red-400 w-[80%] text-white text-small rounded flex items-center justify-center m-2" */
+.errorMessage{
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
 .sign_header img{
     width: 200px;
     margin-top: -40px;

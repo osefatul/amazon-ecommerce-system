@@ -1,92 +1,101 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "../signUp/signUp.css"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Divider } from '@mui/material';
 import logo from "../../../utils/Logo.png"
-
+import { useDispatch, useSelector } from "react-redux";
+import { loginFail, loginPending, loginSuccess } from '../../../features/authSlice/loginSlice';
+import { loginUser, userLogin } from '../../../api/userApi';
 
 function SignIn() {
 
 
+    const[MessageAddedAlert, setMessageAddedAlert] = useState(false)
 
-const [logdata, setData] = useState({
-    email: "",
-    password: ""
-});
+    const [credentials, setCredentials] = useState({
+        username: undefined,
+        password: undefined,
+    });
 
-// console.log(data);
+      //Redux states
+    const {error, isAuth, user} = useSelector(state => state.login)
 
-const adddata = (e) => {
-    const { name, value } = e.target;
-    // console.log(name, value);
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const location = useLocation();
 
-    setData((pre) => {
-        return {
-            ...pre,
-            [name]: value
-        }
-    })
-};
+    const from = location.state?.from?.pathname || "/"
 
-const senddata = async (e) => {
-    e.preventDefault();
+    const handleChange = (e) => {
+        setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    };
 
-    const { email, password } = logdata;
-    // console.log(email);
-    try {
-        const res = await fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email, password
-            })
-        });
+    const handleClick = async (e) => {
+        e.preventDefault();
 
+        dispatch(loginPending());
+        try {
+        const res = await loginUser(credentials)
+        const AuthResponse = res?.response?.data?.message
 
-        const data = await res.json();
-        // console.log(data);
-
-        if (res.status === 400 || !data) {
-            console.log("invalid details");
-        
-        } else {
-            setData({ ...logdata, email: "", password: "" })
+        //Error
+        if (AuthResponse){
+            setMessageAddedAlert(true)//To turn on message alert
+            return dispatch(loginFail(AuthResponse))
         }
 
-    } catch (error) {
-        console.log("login page ka error" + error.message);
-    }
-};
+        //console.log(isAuth)
+        localStorage.setItem("user", JSON.stringify(res.details))
+        dispatch(loginSuccess(res.details));
+        navigate(from , {replace:true})
+
+        } catch (err) {
+            dispatch(loginFail(err))
+        }
+    };
+
+    useEffect(()=>{
+        isAuth && user && navigate(from , {replace:true})
+    },[isAuth, user])
+
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setMessageAddedAlert(false)
+        },3000)
+    },[MessageAddedAlert])
+
 
 
 return (
     <section>
         <div className="sign_container">
+
+        {MessageAddedAlert && <div className='errorMessage'>{error}</div> }
+
             <div className="sign_header">
                 <img src={logo} alt="signupimg" />
             </div>
 
             <div className="sign_form">
-                <form method="POST">
+                <form onSubmit={handleClick}>
                     <h1>Sign-In</h1>
 
                     <div className="form_data">
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email"
-                            onChange={adddata}
-                            value={logdata.email}
+                            onChange={handleChange}
+                            // value={credentials.email}
                             id="email" />
                     </div>
                     <div className="form_data">
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password"
-                            onChange={adddata}
-                            value={logdata.password}
+                            onChange={handleChange}
+                            // value={credentials.password}
                             id="password" placeholder="At least 6 characters" />
                     </div>
-                    <button type="submit" className="signin_btn" onClick={senddata}>Continue</button>
+                    <button type="submit" className="signin_btn" >Continue</button>
                 </form>
             </div>
 
