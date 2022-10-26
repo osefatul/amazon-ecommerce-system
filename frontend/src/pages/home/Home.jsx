@@ -4,6 +4,7 @@ import Slide from '../../components/home/slide/Slide'
 import { Divider } from '@mui/material';
 import "./home.css"
 import HeaderList from '../../components/headerList/HeaderList';
+import Footer from '../../components/footer/Footer';
 
 
 
@@ -18,9 +19,7 @@ function Home() {
                     <Banner />
                 </div>
 
-
                 <div className='categories'>
-
                     <div className="slide_part">
 
                         <div className="left_slide">
@@ -55,6 +54,10 @@ function Home() {
             </div>
 
             <Divider />
+
+            <div className='homeFooter'>
+                <Footer/>
+            </div>
 
         </div>
     )

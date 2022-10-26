@@ -1,6 +1,6 @@
 footer{
     position: relative;
-    margin-top: -200px;
+    /* margin-top: -200px; */
     background-color:#232F3E;
     padding-bottom: 20px;
     display: flex;
@@ -78,5 +78,23 @@ footer .tag {
 @media (max-width:500px){
     .footer_container .forres{
         display: none;
+    }
+
+    footer .footer_container .footr_details_one h3{
+        font-size: 11px;
+        text-align: left;
+    }
+
+    footer .footer_container .footr_details_one p{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 9px;
+        letter-spacing: .5px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    footer p{
+        font-size: 9px;
     }
 }
