@@ -16,6 +16,38 @@ const createProduct = async (req, res) =>{
     
 }
 
+
+
+const getAllProducts = async (req, res) =>{
+    
+    try{
+        const Products = await ProductSchema.find();
+
+        res.status(200).json(Products);
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error);
+    }
+    
+}
+
+
+
+const getASpecificProduct = async (req, res) =>{
+    
+    try{
+        const Products = await ProductSchema.findById(req.params.id);
+
+        res.status(200).json(Products);
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error);
+    }
+    
+}
+
 module.exports = {
-    createProduct
+    createProduct,
+    getAllProducts,
+    getASpecificProduct
 }
