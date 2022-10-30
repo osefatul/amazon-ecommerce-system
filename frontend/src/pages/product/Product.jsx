@@ -15,13 +15,23 @@ import SameCategoryItems from '../../components/product/SameCategoryItems';
 function Product() {
 
     const { id } = useParams();
-    const {product, isLoading} = useSelector(state => state.products)
     const dispatch = useDispatch()
+
+    const {product, isLoading} = useSelector(state => state.products)
+    const [data, setData] = useState(product)
 
 
     useEffect(()=>{
         dispatch(fetchingASpecificProduct(id))
-    },[])
+    },[id])
+
+
+    useEffect(()=>{
+        
+        setData(product)
+    },[product])
+
+
 
 
 
@@ -31,23 +41,23 @@ function Product() {
                 <div className="cart_container">
 
                     <div className="left_cart">
-                        <img src={product?.detailUrl} alt="cart" />
+                        <img src={data?.detailUrl} alt="cart" />
                     </div>
 
 
                     <div className="center_cart">
-                        <h3>{product?.title?.shortTitle}</h3>
-                        <h4>{product?.title?.longTitle}</h4>
+                        <h3>{data?.title?.shortTitle}</h3>
+                        <h4>{data?.title?.longTitle}</h4>
                         <Divider />
-                        <p className="mrp">M.R.P. : <del>${product?.price?.mrp}</del></p>
-                        <p>Deal of the Day : <span style={{ color: "#B12704" }}>${product?.price?.cost}.00</span></p>
-                        <p>You save : <span style={{ color: "#B12704" }}> ${product?.price?.mrp - product?.price?.cost} ({product?.price?.discount}) </span></p>
+                        <p className="mrp">M.R.P. : <del>${data?.price?.mrp}</del></p>
+                        <p>Deal of the Day : <span style={{ color: "#B12704" }}>${data?.price?.cost}.00</span></p>
+                        <p>You save : <span style={{ color: "#B12704" }}> ${data?.price?.mrp - data?.price?.cost} ({data?.price?.discount}) </span></p>
 
                         <div className="discount_box">
-                            <h5 >Discount : <span style={{ color: "#111" }}>{product?.discount}</span> </h5>
+                            <h5 >Discount : <span style={{ color: "#111" }}>{data?.discount}</span> </h5>
 
                         </div>
-                        <p className="description">About the item : <span style={{ color: "#565959", fontSize: "14px", fontWeight: "500", letterSpacing: "0.4px" }}>{product?.description}</span></p>
+                        <p className="description">About the item : <span style={{ color: "#565959", fontSize: "14px", fontWeight: "500", letterSpacing: "0.4px" }}>{data?.description}</span></p>
                     </div>
 
 
@@ -56,7 +66,7 @@ function Product() {
                         <div>
                             <div className='top'>
                                 <p>Buy new:</p>
-                                <span>${product?.price?.cost.toFixed(2)}</span>
+                                <span>${data?.price?.cost.toFixed(2)}</span>
                             </div>
                             
                             <div className='free_shipping'>
@@ -95,16 +105,16 @@ function Product() {
                 </div>
 
 
-            {isLoading ? <div className="circle">
+            {/* {isLoading ? <div className="circle">
                 <CircularProgress />
                 <h2> Loading....</h2>
-            </div> : ""}
+            </div> : ""} */}
 
 
             <div>
                 {
-                product.category &&
-                <SameCategoryItems  productId = {id} category={product.category}/>
+                data.category &&
+                <SameCategoryItems  dataId = {id} category={data.category}/>
                 }
             </div>
 

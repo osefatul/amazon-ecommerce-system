@@ -4,23 +4,13 @@
 }
 
 .cart_section .cart_container{
-    /* padding-top: 85px;
-
-    width: 95%;
-    margin:0 auto;
-    display: flex;
-    padding:50px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    max-width: 1600px; */
 
     width: 98%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 10rem;
-    padding-bottom: 120px;
+    /* padding-bottom: 120px; */
     position: relative;
 
     min-height: calc(100vh - 90px);
@@ -54,6 +44,7 @@
 .cart_container .center_cart{
     flex: 0.5;
     padding-top: 2rem;
+    padding: 1rem;
 
 }
 

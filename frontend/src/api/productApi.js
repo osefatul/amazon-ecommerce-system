@@ -77,7 +77,7 @@ export const updateProduct = async (productId, formData) =>{
 
 export const getProductsByCategory = async (category)=>{
     try {
-        const res = await axios.get(getProductsByCategoryUrl + "?category=Books", 
+        const res = await axios.get(getProductsByCategoryUrl + `?category=${category}`, 
             axios.defaults.withCredentials = true //for sending cookies.
             );
         // console.log(res/)

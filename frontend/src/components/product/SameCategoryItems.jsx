@@ -1,28 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { fetchingProductsSameCategory } from '../../features/productSlice/productAction';
 import Slide from '../home/slide/Slide';
+import "./SameCategoryItems.css"
 
-function SameCategoryItems({category, productId}) {
+function SameCategoryItems({category, dataId}) {
 
-    const {productsBySameCategory, isLoading} = useSelector(state => state.products)
     const dispatch = useDispatch()
 
+    const {productsBySameCategory} = useSelector(state => state.products)
+    
     const similarProducts = productsBySameCategory.filter(
-        product => product._id !== productId
-    )
+        product => product._id !== dataId)
+    
+    const [data, setData] = useState(similarProducts)
+
 
     useEffect(()=>{
         dispatch(fetchingProductsSameCategory(category))
-    },[])
+    },[category])
+
+
+
+    useEffect(()=>{
+        setData(similarProducts)
+    },[dataId,productsBySameCategory, category, similarProducts])
 
 
     return (
-        <div>
-
+        <div className='similar_items'>
             <Slide title="Similar Items" 
-            products={similarProducts}/>
+            products={data}/>
         </div>
     )
 }
