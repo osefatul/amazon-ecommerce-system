@@ -12,7 +12,8 @@ const productSchema  = new Schema({
     price:Object,
     description:String,
     discount:String,
-    tagline:String
+    tagline:String,
+    category:String,
     }, opts);
 
 module.exports = {

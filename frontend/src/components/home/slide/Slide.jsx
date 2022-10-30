@@ -2,7 +2,7 @@ import React from 'react'
 import "./slide.css";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { products } from '../../../utils/productData';
+// import { products } from '../../../utils/productData';
 import { Divider } from '@mui/material';
 import { NavLink } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const responsive = {
     }
 };
 
-const Slide = ({ title,}) => {
+const Slide = ({ title, products}) => {
 
 
     return (
@@ -44,7 +44,7 @@ const Slide = ({ title,}) => {
                 showDots={false}
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
+                itemClass="carousel-item-padding-10-px"
                 containerClass="carousel-container"
                 navButtonsProps={{
                     style: {

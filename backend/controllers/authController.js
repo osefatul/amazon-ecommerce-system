@@ -8,7 +8,7 @@ const createUser = async (req, res) => {
 
     //Fill up all details in the inputs
     if (!name || !email || !password || !confirmPassword) {
-        res
+        return res
         .status(422)
         .json({ error: "Please fill up the details" });
     }

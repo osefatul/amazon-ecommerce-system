@@ -23,6 +23,9 @@ header nav .left{
     width: 100%;
     /* border: 2px solid red; */
     flex: .2;
+    padding: 0 1rem;
+
+
 }
 
 
@@ -32,7 +35,7 @@ header nav .center{
     align-items: center;
     width: 100%;
     /* border: 2px solid red; */
-    flex: .5;
+    flex: .6;
 }
 
 header nav .navlogo img{
@@ -97,10 +100,12 @@ header nav .center .search_icon{
     border: 2px solid #febd69;
 } */
 
-.right{
+header nav .right{
     display: flex;
     justify-content:space-around;
     align-items: center;
+    padding: 0 1rem;
+
     /* border: 2px solid red; */
     flex: 0.2;
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 import Banner from '../../components/home/banner/Banner'
 import Slide from '../../components/home/slide/Slide'
 import { Divider } from '@mui/material';
@@ -6,10 +6,31 @@ import "./home.css"
 import HeaderList from '../../components/headerList/HeaderList';
 import Footer from '../../components/footer/Footer';
 
+import { useDispatch, useSelector } from "react-redux"
+import { fetchingProducts } from '../../features/productSlice/productAction';
+
 
 
 
 function Home() {
+
+    const dispatch = useDispatch()
+    const {products} = useSelector(state => state.products)
+
+    const [data, setData] = useState(products)
+
+
+    useEffect(()=>{
+        dispatch(fetchingProducts())
+    },[])
+
+    
+    useEffect(()=>{
+        setData(products)
+    },[products])
+    
+    console.log(data)
+
     return (
         <div className='homePage'>
 
@@ -24,7 +45,7 @@ function Home() {
 
                         <div className="left_slide">
                             <Slide title="Deal Of The Day" 
-                            // products={products} 
+                            products={data}
                             />
                         </div>
 
@@ -36,7 +57,8 @@ function Home() {
                     </div>
 
                     <Slide title="Today's Deal" 
-                    // products={products} 
+                        products={data}
+
                     />
 
                     <div className="center_img">
@@ -44,10 +66,10 @@ function Home() {
                     </div>
 
                     <Slide title="Best Seller" 
-                    // products={products} 
+                    products={data} 
                     />
                     <Slide title="Upto 80% off" 
-                    // products={products} 
+                    products={data} 
                     />
                 </div>
 

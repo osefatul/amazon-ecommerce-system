@@ -27,25 +27,29 @@ Content-Type: application/json
 
 
 ### Create new Product
-POST http://localhost:5000/v1/auth/
+POST http://localhost:5000/v1/products/
 Content-Type: application/json
 
 { 
-        "url": "https://rukminim1.flixcart.com/image/150/150/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70", 
-        "detailUrl": "https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70",
+        "url": "https://m.media-amazon.com/images/I/71GVODjIEJL._AC_SX679_.jpg",
+        "detailUrl": "https://m.media-amazon.com/images/I/71GVODjIEJL._AC_SX679_.jpg", 
         "title": {
-            "shortTitle": "Home & Kitchen",
-            "longTitle": "Pigeon FAVOURITE Electric Kettle  (1.5 L, Silver, Black)"
+            "shortTitle": "External Keyboard",
+            "longTitle": "Razer Huntsman Tournament Edition TKL Tenkeyless Gaming Keyboard: Fast Keyboard Switches - Linear Optical Switches - Chroma RGB Lighting - PBT Keycaps - Onboard Memory - Classic Black"
         }, 
         "price": {
-            "mrp": 395,
-            "cost": 225,
-            "discount": "47%"
+            "mrp": 279,
+            "cost": 223,
+            "discount": "23%"
         },
-        "description": "This electric kettle from Pigeon will soon become a travelers best friend, a hostelite saviour and an answer to all the midnight cravings. With this handy appliance, you can boil water and use it to make instant noodles, packet soup, coffee and green tea.",
-        "discount": "Extra 10% Off", 
-        "tagline": "Deal of the day" 
+        "description":  "Faster Than Traditional Mechanical Switches: Razer Linear Optical switch technology uses optical beam-based actuation, registering key presses at the speed of light (15-30% shorter actuation distance than other linear switches at 1.0 millimeter) Ultimate Personalization & Gaming Immersion with Razer Chroma: Fully syncs with popular games, Razer hardware, Philips Hue, and gear from 30 plus partners; supports 16.8 million colors on individually backlit keys Quality, Aluminum Construction: Covered with a matte, aluminum top frame for increased structural integrity Tournament-Ready Design: A tenkeyless design with a detachable USB-C cable provides a portable form-factor for on-the-go gamers Oil-Resistant Doubleshot PBT Keycaps: Made of textured, high-grade PBT for a more durable and textured finish less prone to long-term grime buildup Fully Programmable Macros: Razer Hypershift allows for all keys and keypress combinations to be remapped to execute complex commands" ,
+        "discount": "From 20% Off", 
+        "tagline": "Extra 10% Off",
+        "category": "Computer Devices"
     }
+
+
+
 
 
 
@@ -55,6 +59,22 @@ Content-Type: application/json
 
 
 
-### Get a specific Product
-GET http://localhost:5000/v1/products/63592f3aa29b93357b2956ef
+### Get all Products of same category
+GET http://localhost:5000/v1/products/same-category?category=Books
 Content-Type: application/json
+
+
+
+### Get a specific Product
+GET http://localhost:5000/v1/products/635a47de0b2de6df085c294c
+Content-Type: application/json
+
+
+### Update a specific Product
+PUT http://localhost:5000/v1/products/635a7ed10b2de6df085c29e7
+Content-Type: application/json
+
+{
+    "category": "Computer & Electronics"
+}
+

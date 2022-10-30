@@ -31,7 +31,6 @@ function App() {
           <>
             <Header/>
             <Product/>
-            <Footer/>
           </>}/>
 
       </Routes>

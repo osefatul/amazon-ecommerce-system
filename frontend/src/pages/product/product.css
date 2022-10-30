@@ -1,18 +1,11 @@
 .cart_section{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    width: 100%;
-    height: 100vh;
-    max-width: 1600px;
-    margin:0 auto;
-
+    
     /* background-color: rgb(245, 239, 239); */
 }
 
 .cart_section .cart_container{
+    /* padding-top: 85px;
+
     width: 95%;
     margin:0 auto;
     display: flex;
@@ -20,26 +13,48 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    max-width: 1600px; */
+
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10rem;
+    padding-bottom: 120px;
+    position: relative;
+
+    min-height: calc(100vh - 90px);
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1600px;
+    gap: 3rem;
 }
 
 
 .cart_container .left_cart{
+
     flex: .3;
     display: flex;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    padding-top: 8rem;
+    
 }
 
-.left_cart img{
-    width:50%;
+.cart_container .left_cart img{
+    max-width:16rem;
 }
 
 
 
 .cart_container .center_cart{
     flex: 0.5;
-    /* padding: 10px; */
+    padding-top: 2rem;
+
 }
 
 .center_cart h3{
@@ -88,6 +103,7 @@
 
 .cart_container .right_cart{
     flex: 0.2;
+
     border: solid 5px #cfc9c9;
     border-radius: 10px;
     
@@ -207,6 +223,7 @@
 .cart_btn .cart_btn2:hover{
     background-color: #ec9615;
 }
+
 
 
 
