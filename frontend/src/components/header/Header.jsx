@@ -29,6 +29,8 @@ const Header = () => {
     const navigate = useNavigate();
     const [text, setText] = useState();
 
+    const {cartItems} = useSelector(state => state.cart)
+
 
     // only for search
     // const { products } = useSelector(state => state.getproductsdata);
@@ -221,8 +223,8 @@ const Header = () => {
                     </div>
 
 
-                    <div className="cart_btn">
-                        <span className="badge">3</span>
+                    <div className="cart_btn" onClick = {()=> navigate("/cart")}>
+                        <span className="badge">{cartItems.length}</span>
                         <span className='cartIcon'>
                             <AddShoppingCart sx={{fontSize:"28px"}}/>
                         </span>

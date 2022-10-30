@@ -7,10 +7,13 @@ import { useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 // import { Logincontext } from "../context/Contextprovider";
 import moment from "moment";
-import { fetchingASpecificProduct, fetchingProductsSameCategory } from '../../features/productSlice/productAction';
+import { fetchingASpecificProduct } from '../../features/productSlice/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../components/footer/Footer';
 import SameCategoryItems from '../../components/product/SameCategoryItems';
+import {addToCart} from "../../features/cartSlice/cartSlice"
+
+
 
 function Product() {
 
@@ -18,6 +21,7 @@ function Product() {
     const dispatch = useDispatch()
 
     const {product, isLoading} = useSelector(state => state.products)
+
     const [data, setData] = useState(product)
 
 
@@ -94,7 +98,7 @@ function Product() {
                     
                         <div className="cart_btn">
                             <button className="cart_btn1" 
-                            // onClick={() => addToCart(data.id)}
+                            onClick={() => dispatch(addToCart(data))}
                             
                             >Add to Cart</button>
                             <button className="cart_btn2">Buy Now</button>

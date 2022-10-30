@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import SignUp from './pages/auth/signUp/SignUp';
 import SignIn from './pages/auth/signIn/SignIn';
 import Product from './pages/product/Product';
+import Cart from "./pages/cart/Cart"
 
 function App() {
   return (
@@ -27,10 +28,18 @@ function App() {
           <Route exact path="/login" element={<SignIn/>}/>
 
           <Route exact path="/products/:id" 
-          element={
-          <>
-            <Header/>
-            <Product/>
+            element={
+            <>
+              <Header/>
+              <Product/>
+          </>}/>
+
+
+          <Route exact path="/cart" 
+            element={
+            <>
+              <Header/>
+              <Cart/>
           </>}/>
 
       </Routes>
