@@ -62,7 +62,7 @@ const Slide = ({ title, products}) => {
                             <NavLink to={`/products/${e.id}`}>
                                 <div key={e.id} className="products_items">
                                     <div className="product_img">
-                                        <img src={e.url} alt="product" />
+                                        <img loading='lazy' src={e.url} alt="product" />
                                     </div>
                                     <p className="products_name">{e.title.shortTitle}</p>
                                     <p className="products_offer" style={{ color: "#007185", backgroundColor:""}}>{e.discount}</p>

@@ -1,0 +1,53 @@
+
+.successCheckoutPage{
+    background-color: #e7e7e7;
+    height: 100vh;
+}
+
+
+
+.checkoutSection{
+    background-color: white;
+    padding-top: 120px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+.checkoutSection_body{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.checkout_title{
+    display: flex;
+    gap: 5px;
+}
+
+.checkout_body{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+}
+
+.orderLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(236, 169, 22);
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}

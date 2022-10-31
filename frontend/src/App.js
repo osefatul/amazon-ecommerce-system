@@ -10,6 +10,7 @@ import SignUp from './pages/auth/signUp/SignUp';
 import SignIn from './pages/auth/signIn/SignIn';
 import Product from './pages/product/Product';
 import Cart from "./pages/cart/Cart"
+import SuccessCheckout from './pages/successfullCheckout/SuccessCheckout';
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
             <>
               <Header/>
               <Cart/>
+          </>}/>
+
+
+          
+          <Route exact path="/successfulCheckout" 
+            element={
+            <>
+              <SuccessCheckout/>
           </>}/>
 
       </Routes>

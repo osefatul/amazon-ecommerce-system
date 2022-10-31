@@ -9,7 +9,7 @@
     /* display: flex; */
     justify-content: center;
     /* align-items: center; */
-    padding-top: 85px;
+    padding-top: 95px;
     background: linear-gradient(to bottom, #e7e7e7 3%, #ffffff 100%);
     min-height: calc(100vh - 90px);
     border-bottom: 2px solid rgb(199, 199, 199);

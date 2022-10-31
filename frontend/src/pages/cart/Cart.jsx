@@ -12,7 +12,7 @@ import "./cart.css"
 
 function Cart() {
 
-    const {cartItems} = useSelector(state => state.cart)
+    const {cartItems, cartTotalQuantity} = useSelector(state => state.cart)
     const [data, setData] = useState(cartItems)
     const dispatch = useDispatch();
 
@@ -60,9 +60,9 @@ return (
                             })
                         }
 
-                        <Subtotal item={data} />
+                        <Subtotal item={data} cartTotalQuantity={cartTotalQuantity} />
                     </div>
-                    <Sidebar item={data} />
+                    <Sidebar item={data} cartTotalQuantity={cartTotalQuantity} />
                 </div>
             </div> : <Empty />
         }

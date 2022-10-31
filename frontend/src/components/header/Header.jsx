@@ -32,10 +32,6 @@ const Header = () => {
     const {cartItems} = useSelector(state => state.cart)
 
 
-    // only for search
-    // const { products } = useSelector(state => state.getproductsdata);
-
-
     useEffect(() => {
         // dispatch(getProducts());
     }, [dispatch])

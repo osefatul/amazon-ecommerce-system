@@ -10,6 +10,7 @@ const morgan = require("morgan");
 
 const authRouter = require("./routers/authRouter");
 const productRouter = require("./routers/productRouter");
+const paymentRouter = require("./routers/paymentRouter");
 
 
 const port = process.env.PORT || 5000;
@@ -36,6 +37,8 @@ app.use(bodyParser.json());
 
 app.use("/v1/auth", authRouter);
 app.use("/v1/products", productRouter);
+app.use("/v1/payments", paymentRouter);
+
 
 
 

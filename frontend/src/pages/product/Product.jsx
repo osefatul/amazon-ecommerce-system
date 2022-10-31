@@ -45,7 +45,7 @@ function Product() {
                 <div className="cart_container">
 
                     <div className="left_cart">
-                        <img src={data?.detailUrl} alt="cart" />
+                        <img loading="lazy" src={data?.detailUrl} alt="cart" />
                     </div>
 
 

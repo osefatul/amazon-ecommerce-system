@@ -4,7 +4,7 @@ import "../../pages/cart/cart.css"
 
 
 
-const Subtotal = ({item}) => {
+const Subtotal = ({item, cartTotalQuantity}) => {
     const [price, setPrice] = useState(0);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Subtotal = ({item}) => {
 
     return (
         <div className="sub_item">
-            <h3>Subtotal ({item.length} items):<strong style={{ fontWeight: "700", color: "#111" }}> ${price}.00</strong></h3>
+            <h3>Subtotal ({cartTotalQuantity} items):<strong style={{ fontWeight: "700", color: "#111" }}> ${price}.00</strong></h3>
         </div>
     )
 }
