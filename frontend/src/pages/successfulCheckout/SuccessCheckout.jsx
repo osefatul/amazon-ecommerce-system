@@ -4,6 +4,7 @@ import { clearCart } from "../../features/cartSlice/cartSlice";
 import Header from "../../components/header/Header"
 import "./successCheckout.css"
 import {CheckCircle} from '@mui/icons-material/';
+import { Link } from 'react-router-dom';
 
 
 function SuccessCheckout() {
@@ -41,8 +42,10 @@ function SuccessCheckout() {
                         </p>
                     </div>
 
-                    <button className='orderLink'>
+                    <button className='orderLink' >
+                        <Link to={'/orders'}>
                         Go to my orders
+                        </Link>
                     </button>
 
                 </div>
