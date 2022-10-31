@@ -13,9 +13,30 @@
 .rightheader .right_nav h3{
     margin-left: 10px;
     margin-top: 20px;
-    font-style: italic;
+    font-size: 1rem;
     font-weight: 500;
     color: #fff;
+}
+
+.AvatarDiv{
+    position: relative;
+}
+.AvatarDiv .cartLength {
+    position: absolute;
+    background-color: rgb(216, 167, 8);
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    left: 2.5rem;
+    top: 1.2rem;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
 }
 
 .rightheader .avtar{
@@ -26,7 +47,8 @@
 
 .rightheader .avtar2{
     cursor: pointer;
-    background-color: #1365cf;
+    color: black;
+    background-color: rgb(238, 227, 227);
     margin-top: 20px;
     margin-left: 10px;
 }

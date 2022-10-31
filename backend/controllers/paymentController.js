@@ -11,8 +11,7 @@ const StripePayment = async (req, res, next) => {
 
     const customer = await stripe.customers.create({
         metadata: {
-        // userId: req.body.userId,
-        userId: "rasdfasdf8466",
+        userId: req.body.userId,
         cart: JSON.stringify(req.body.cartItems.length),
         },
     });

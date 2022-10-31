@@ -38,7 +38,7 @@ const cartSlice = createSlice({
 
         addMultipleToCart(state, action) {
 
-            console.log(action.payload)
+            // console.log(action.payload)
 
             const existingIndex = state.cartItems.findIndex(
                 (item) => item._id === action.payload.id

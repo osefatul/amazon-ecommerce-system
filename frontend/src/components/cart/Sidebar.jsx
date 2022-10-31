@@ -13,6 +13,8 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
     const [val, setVal] = useState(false);
     const [price, setPrice] = useState(0);
     const { cartItems} = useSelector(state => state.cart)
+    const { user} = useSelector(state => state.login)
+
 
     // const history = useHistory("");
 
@@ -37,7 +39,7 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
         const res = await axios({
             method:"post", 
             url:"http://localhost:5000/v1/payments/" , 
-            data:{cartItems }
+            data:{cartItems, userId:user._id }
         })
 
         const {url} = res.data;

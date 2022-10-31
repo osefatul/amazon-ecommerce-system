@@ -8,10 +8,20 @@ import { useContext, useState } from 'react';
 import "./rightSide.css";
 import { Divider } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useSelector } from 'react-redux';
 
 
 
-function RightSide({user,  userLogout ,closeDrawer}) {
+function RightSide() {
+
+    const [user] = useState(JSON.parse(localStorage.getItem('user')));
+    const {cartItems} = useSelector(state => state.cart)
+
+    const handleLogout = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("user")
+        window.location.reload()
+    }
 
 
 //  this is left drawer bt name is right header
@@ -20,16 +30,22 @@ function RightSide({user,  userLogout ,closeDrawer}) {
             <div className="right_nav">
                 {
                     user ?
-                    <Avatar className="avtar2"
-                        title={user.name.toUpperCase()}>{user.name[0].toUpperCase()}
-                    </Avatar> :
+
+                    <div className='AvatarDiv'>
+                        <div className='cartLength'>
+                            {cartItems.length}
+                        </div>
+                        <Avatar className="avtar2"
+                            title={user.name.toUpperCase()}>{user.name[0].toUpperCase()}
+                        </Avatar> 
+                    </div>
+                    :
                     <Avatar className="avtar"/>
                 }
-                {user ? <h3>Hello, {user.name.toUpperCase()}</h3> : ""}
+                {user ? <h3>Hello, @{user.name.toUpperCase()}</h3> : ""}
             </div>
 
             <div className="nav_btn" 
-            // onClick={(e)=>closeDrawer()}
             >
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">Shop By Category</NavLink>
@@ -49,7 +65,7 @@ function RightSide({user,  userLogout ,closeDrawer}) {
                     user ?
                         <div className="flag">
                             <LogoutIcon style={{ fontSize: 18, marginRight: 4 }} />
-                            <h3 onClick={(e) => userLogout()} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
+                            <h3 onClick={ handleLogout} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
                         </div>
                         : 
                         <NavLink to="/login">Sign in</NavLink>

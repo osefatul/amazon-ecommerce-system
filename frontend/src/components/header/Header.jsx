@@ -19,14 +19,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { products } from '../../utils/productData';
 import {Search, Place, AddShoppingCart} from '@mui/icons-material';
 import HeaderList from '../headerList/HeaderList';
+import { userSuccess } from '../../features/authSlice/loginSlice';
 
 
 
 const Header = () => {
 
-    const dispatch = useDispatch();
-
     const navigate = useNavigate();
+    const dispatch = useDispatch()
     const [text, setText] = useState();
 
     const {cartItems} = useSelector(state => state.cart)
@@ -34,15 +34,16 @@ const Header = () => {
 
 
     useEffect(() => {
-        localStorage.getItem('user') && setUser(JSON.parse(localStorage.getItem('user')));
+        localStorage.getItem('user') && setUser(JSON.parse(localStorage.getItem('user'))) 
+        
+        user && dispatch(userSuccess(user))
     }, [])
 
 
-    console.log(user)
 
 
     const [open, setOpen] = useState(false);
-    const [liopen, setLiopen] = useState(true);
+    const [liOpen, setLiOpen] = useState(true);
 
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -61,18 +62,18 @@ const Header = () => {
         setDrawerOpen(true);
     }
 
-    const handleCloseDrawer = (e) => {
+    const handleCloseDrawer = () => {
         setDrawerOpen(false)
     }
 
     const getText = (text) => {
         setText(text)
-        setLiopen(false)
+        setLiOpen(false)
     }
 
 
-    const handleLogout = (e) => {
-        e.preventDefault()
+    const handleLogout = () => {
+        // e.preventDefault()
         localStorage.removeItem("user")
         window.location.reload()
     }
@@ -81,16 +82,21 @@ const Header = () => {
         <header>
             <nav>
                 <div className="left">
-                    <IconButton className="hamburgur" onClick={handleCloseDrawer}>
+                    <IconButton className="hamburgur" onClick={handleOpen}>
                         <MenuIcon style={{ color: "#fff" }} />
                     </IconButton>
 
                         {/* here define the right header */}
-                    <Drawer open={drawerOpen} onClose={handleCloseDrawer} >
+                    <Drawer
+                        PaperProps={{onClick: handleCloseDrawer}}
+                        open={drawerOpen} 
+                        onClose={handleCloseDrawer} >
+
                         <RightSide
-                            user= {user}
-                            userLogout={handleLogout} 
-                            closeDrawer={handleCloseDrawer} />
+                            // user= {user}
+                            handleLogout={handleLogout} 
+                            setDrawerOpen={setDrawerOpen} 
+                        />
                     </Drawer>
 
                     <div className="navlogo">
@@ -122,11 +128,11 @@ const Header = () => {
                         </div>
                         {
                             text &&
-                            <List className="extrasearch" hidden={liopen}>
+                            <List className="extrasearch" hidden={liOpen}>
                                 {
                                     products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase())).map(product => (
                                         <ListItem>
-                                            <NavLink to={`/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
+                                            <NavLink to={`/getproductsone/${product.id}`} onClick={() => setLiOpen(true)}>
                                                 {product.title.longTitle}
                                             </NavLink>
                                         </ListItem>
@@ -153,7 +159,6 @@ const Header = () => {
                             anchorEl={open}
                             open={Boolean(open)}
                             onClose={handleClose}
-                            // className={classes.component}
                         >
 
                             {!user && 
@@ -186,7 +191,7 @@ const Header = () => {
                     </div>
 
 
-                    <div className='rightButton'>
+                    <div className='rightButton'onClick = {()=> navigate("/orders")}>
                         <span>Returns</span>
                         <p>& Orders</p>
                     </div>

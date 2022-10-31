@@ -10,6 +10,7 @@ import SignIn from './pages/auth/signIn/SignIn';
 import Product from './pages/product/Product';
 import Cart from "./pages/cart/Cart"
 import SuccessCheckout from './pages/successfulCheckout/SuccessCheckout';
+import Order from './pages/order/Order';
 
 function App() {
   return (
@@ -48,6 +49,13 @@ function App() {
             element={
             <>
               <SuccessCheckout/>
+          </>}/>
+
+          <Route exact path="/orders" 
+            element={
+            <>
+              <Header/>
+              <Order/>
           </>}/>
 
       </Routes>
