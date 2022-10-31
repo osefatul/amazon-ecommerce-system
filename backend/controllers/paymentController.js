@@ -1,5 +1,4 @@
 const stripe = require("stripe")(process.env.SECRET_KEY)
-const { Stripe } = require("stripe");
 const { Order } = require("../models/OrderModel");
 const domainUrl = process.env.DOMAIN_URL;
 
@@ -8,9 +7,12 @@ let productsData = [];
 //Stripe Payment process...
 const StripePayment = async (req, res, next) => {
 
+    console.log(req.body)
+
     const customer = await stripe.customers.create({
         metadata: {
-        userId: req.body.userId,
+        // userId: req.body.userId,
+        userId: "rasdfasdf8466",
         cart: JSON.stringify(req.body.cartItems.length),
         },
     });
@@ -20,15 +22,16 @@ const StripePayment = async (req, res, next) => {
             price_data: {
                 currency: "usd",
                 product_data: {
-                name: item.name,
-                description: item.desc,
+                name: item.title.shortTitle,
+                description: item.description.slice(0,200),
+                images:[item.url],
                 metadata: {
                     id: item.id || item._id,
                 },
                 },
-                unit_amount: item.price * 100,
+                unit_amount: item.price.cost * 100,
             },
-            quantity: item.itemQuantity,
+            quantity: item.cartQuantity,
             };
     });
 
@@ -45,7 +48,7 @@ const StripePayment = async (req, res, next) => {
         mode: 'payment',
         customer:customer.id,
         line_items,
-        success_url: `${domainUrl}checkout-success`,
+        success_url: `${domainUrl}successfulCheckout`,
         cancel_url: `${domainUrl}cart`,
         shipping_address_collection: {allowed_countries: ['US', "GB", "CA"]},
         shipping_options: [
@@ -115,11 +118,10 @@ const createOrder = async (customer, data) => {
 
     const products = await productsData.map((item) => {
     return {
-    productName:item.name,
-    productType:item.type,
-    bookingId:item.bookingId || null,
+    productName:item.title.shortTitle,
+    productImg:item.url,
     productId: item.id || item._id,
-    quantity: item.itemQuantity,
+    quantity: item.cartQuantity,
     };
 });
 
@@ -148,11 +150,11 @@ try {
 
 
 const webhook = async(req, res) =>{
+
     // This is your Stripe CLI webhook secret for testing your endpoint locally.
     let eventType;
     let data;
     let webhookSecret;
-    // const endpointSecret = "whsec_2664c87d590d9af9da1d94e85bef5c2815f699a2e0e19e7902ba07b3cf1d95f9";
 
     if(webhookSecret){
     let event;
@@ -200,19 +202,7 @@ const webhook = async(req, res) =>{
                         }
                 }).catch(error => (console.log(error)))
 
-            //Retrieving listLine Items.
-            // stripe.checkout.sessions.listLineItems(
-            //         data.id,
-            //         { limit: 5 },
-            //         function(err, lineItems) {
-            //           // asynchronously called
-            //         console.log("This is from lineItems", lineItems)
-            //         console.log("This is from lineItems", lineItems.data.price)
-
-            //         }
-            //     );
             break;
-        
 
     }
     

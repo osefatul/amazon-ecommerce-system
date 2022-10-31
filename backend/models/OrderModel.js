@@ -6,8 +6,7 @@ const OrderSchema = mongoose.Schema({
     products: [
         {
         productName: { type: String},
-        productType: { type: String},
-        bookingId: { type: String},
+        productImg: { type: String},
         productId: { type: String }, 
         quantity: { type: Number, default: 1 } 
     },
