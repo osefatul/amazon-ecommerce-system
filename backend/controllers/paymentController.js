@@ -189,16 +189,16 @@ const webhook = async(req, res) =>{
             stripe.customers
                 .retrieve(data.customer)
                     .then(async (customer) => {
-                        console.log(customer);
-                        console.log("this from data:", data)
-                        console.log("productData:", productsData)
+                        // console.log(customer);
+                        // console.log("this from data:", data)
+                        // console.log("productData:", productsData)
                         
                     // Create Order:
                         try{
                             createOrder(customer, data);
                         }catch(error){
-                            console.log(typeof createOrder);
-                            console.log(error);
+                            // console.log(typeof createOrder);
+                            // console.log(error);
                         }
                 }).catch(error => (console.log(error)))
 

@@ -29,7 +29,7 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
     }
 
 
-    
+
     const handleCheckout = async (e)=>{
         e.preventDefault()
 
@@ -37,7 +37,6 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
         const res = await axios({
             method:"post", 
             url:"http://localhost:5000/v1/payments/" , 
-            // url:"https://travels-web-app.herokuapp.com/v1/payments" , 
             data:{cartItems }
         })
 

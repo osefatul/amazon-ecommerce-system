@@ -5,12 +5,11 @@ import {
 } from "react-router-dom";
 import Home from './pages/home/Home';
 import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import SignUp from './pages/auth/signUp/SignUp';
 import SignIn from './pages/auth/signIn/SignIn';
 import Product from './pages/product/Product';
 import Cart from "./pages/cart/Cart"
-import SuccessCheckout from './pages/successfullCheckout/SuccessCheckout';
+import SuccessCheckout from './pages/successfulCheckout/SuccessCheckout';
 
 function App() {
   return (

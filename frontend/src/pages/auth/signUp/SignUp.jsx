@@ -75,7 +75,7 @@ function SignUp() {
 
 
                 <div className="sign_header">
-                    <img src={logo} alt="signupimg" />
+                    <img img loading='lazy' src={logo} alt="signupimg" />
                 </div>
                 {MessageAddedAlert && <div className='errorMessage'>{message}</div> }
                 <div className="sign_form">

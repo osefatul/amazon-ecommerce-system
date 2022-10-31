@@ -11,7 +11,7 @@ export const userRegistration = async (formData)=>{
         const res = await axios.post(registerUrl, formData);
         // console.log(res);
         if(res.status === 200){
-            console.log (res.data.message)
+            // console.log (res.data.message)
             return res.data.message
         }
 
@@ -33,6 +33,8 @@ export const loginUser = async (formData) =>{
         formData,
         axios.defaults.withCredentials = true //use this for sending cookies
         );
+
+        // console.log(res)
 
     
     // console.log(res)

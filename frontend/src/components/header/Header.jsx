@@ -24,23 +24,27 @@ import HeaderList from '../headerList/HeaderList';
 
 const Header = () => {
 
-
     const dispatch = useDispatch();
+
     const navigate = useNavigate();
     const [text, setText] = useState();
 
     const {cartItems} = useSelector(state => state.cart)
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
 
     useEffect(() => {
-        // dispatch(getProducts());
-    }, [dispatch])
+        localStorage.getItem('user') && setUser(JSON.parse(localStorage.getItem('user')));
+    }, [])
+
+
+    console.log(user)
 
 
     const [open, setOpen] = useState(false);
     const [liopen, setLiopen] = useState(true);
 
-    const [dropen, setDropen] = useState(false);
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
     const handleClick = (event) => {
         setOpen(event.currentTarget);
@@ -49,68 +53,16 @@ const Header = () => {
         setOpen(false)
     };
 
-    // const { account, setAccount } = useContext(Logincontext);
-
-    // const getdetailsvaliduser = async () => {
-    //     const res = await fetch("/validuser", {
-    //         method: "GET",
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json"
-    //         },
-    //         credentials: "include"
-    //     });
-
-    //     const data = await res.json();
-    //     // console.log(data);
-
-    //     if (res.status !== 201) {
-    //         console.log("first login");
-    //     } else {
-    //         // console.log("cart add ho gya hain");
-    //         // setAccount(data);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getdetailsvaliduser();
-    // }, []);
 
 
-    // for logout
-    const logoutuser = async () => {
-        const res2 = await fetch("/logout", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            credentials: "include"
-        });
-
-        const data2 = await res2.json();
-        // console.log(data2);
-
-        if (!res2.status === 201) {
-            const error = new Error(res2.error);
-            throw error;
-        } else {
-            // setAccount(false);
-            setOpen(false)
-            // toast.success("user Logout 😃!", {
-            //     position: "top-center"
-            // });
-            navigate("/");
-        }
-    }
 
     // for drawer
-    const handelopen = () => {
-        setDropen(true);
+    const handleOpen = () => {
+        setDrawerOpen(true);
     }
 
-    const handleClosedr = () => {
-        setDropen(false)
+    const handleCloseDrawer = (e) => {
+        setDrawerOpen(false)
     }
 
     const getText = (text) => {
@@ -119,17 +71,26 @@ const Header = () => {
     }
 
 
+    const handleLogout = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("user")
+        window.location.reload()
+    }
+
     return (
         <header>
             <nav>
                 <div className="left">
-                    <IconButton className="hamburgur" onClick={handelopen}>
+                    <IconButton className="hamburgur" onClick={handleCloseDrawer}>
                         <MenuIcon style={{ color: "#fff" }} />
                     </IconButton>
 
                         {/* here define the right header */}
-                    <Drawer open={dropen} onClose={handleClosedr} >
-                        <RightSide userlog={logoutuser} logclose={handleClosedr} />
+                    <Drawer open={drawerOpen} onClose={handleCloseDrawer} >
+                        <RightSide
+                            user= {user}
+                            userLogout={handleLogout} 
+                            closeDrawer={handleCloseDrawer} />
                     </Drawer>
 
                     <div className="navlogo">
@@ -139,7 +100,7 @@ const Header = () => {
                     <div className='location'>
                         <Place/>
                         <div className='place'>
-                            <span className='delivery'>Deliver to Sefatullah
+                            <span className='delivery'>Deliver to {user?.name}
                             </span>
                             <span className='country'>Canada</span>
                         </div>
@@ -181,7 +142,9 @@ const Header = () => {
                 <div className="right">
 
                     <div className="rightButton"  onClick={handleClick}>
-                            <span>Hello, sign in</span>
+                            <span>Hello,{" "}
+                                {user? user.name : "sign in"}
+                                </span>
                             <p>Account & Lists</p>
                     </div>
 
@@ -192,15 +155,25 @@ const Header = () => {
                             onClose={handleClose}
                             // className={classes.component}
                         >
+
+                            {!user && 
                             <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12 }}>
                                 <NavLink to="/login"  style={{ textDecoration: 'none' }} >
                                     Sign in
                                 </NavLink>
                             </MenuItem>
+                            }
 
                             <MenuItem onClick={handleClose} style={{ margin: 5, fontSize: 12}}>
                                 My account
                             </MenuItem>
+
+                            {
+                                user &&
+                            <MenuItem onClick={handleLogout} style={{ margin: 5, fontSize: 12}}>
+                                Sign out
+                            </MenuItem>
+                            }
 
                             {/* {
                             account ? 

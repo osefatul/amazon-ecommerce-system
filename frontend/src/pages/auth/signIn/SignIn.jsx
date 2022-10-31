@@ -34,6 +34,7 @@ function SignIn() {
         e.preventDefault();
 
         dispatch(loginPending());
+
         try {
         const res = await loginUser(credentials)
         const AuthResponse = res?.response?.data?.message
@@ -45,8 +46,8 @@ function SignIn() {
         }
 
         //console.log(isAuth)
-        localStorage.setItem("user", JSON.stringify(res.details))
-        dispatch(loginSuccess(res.details));
+        localStorage.setItem("user", JSON.stringify(res.user))
+        dispatch(loginSuccess(res.user));
         navigate(from , {replace:true})
 
         } catch (err) {
@@ -74,7 +75,7 @@ return (
         {MessageAddedAlert && <div className='errorMessage'>{error}</div> }
 
             <div className="sign_header">
-                <img src={logo} alt="signupimg" />
+                <img img loading='lazy' src={logo} alt="signupimg" />
             </div>
 
             <div className="sign_form">

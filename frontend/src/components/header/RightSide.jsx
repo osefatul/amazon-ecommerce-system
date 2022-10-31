@@ -11,46 +11,32 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
-// const usestyle = makeStyles({
-//     component: {
-//         marginTop: 10,
-//         marginRight: "-50px",
-//         width: "300px",
-//         padding: 50,
-//         height: "300px"
-//     },
-// })
+function RightSide({user,  userLogout ,closeDrawer}) {
 
-
-
-function RightSide({ userlog ,logclose}) {
-
-    const imgd = "/india.png"
-
-    // const { account, setAccount } = useContext(Logincontext);
 
 //  this is left drawer bt name is right header
-
     return (
         <div className="rightheader">
             <div className="right_nav">
                 {
-                    // account ?
-                    // <Avatar className="avtar2"
-                    //         title={account.fname.toUpperCase()}>{account.fname[0].toUpperCase()}</Avatar> :
+                    user ?
+                    <Avatar className="avtar2"
+                        title={user.name.toUpperCase()}>{user.name[0].toUpperCase()}
+                    </Avatar> :
                     <Avatar className="avtar"/>
                 }
-                {/* {account ? <h3>Hello, {account.fname.toUpperCase()}</h3> : ""} */}
+                {user ? <h3>Hello, {user.name.toUpperCase()}</h3> : ""}
             </div>
 
             <div className="nav_btn" 
-            onClick={()=>logclose()}>
+            // onClick={(e)=>closeDrawer()}
+            >
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">Shop By Category</NavLink>
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
                 <NavLink to="/" style={{ marginTop: 10 }}>Today's Deal</NavLink>
                 {
-                    // account ? <NavLink to="/buynow">Your Order</NavLink> : 
+                    user ? <NavLink to="/cart">Your Order</NavLink> : 
                     <NavLink to="/login">Your Order</NavLink>
                 }
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
@@ -60,12 +46,12 @@ function RightSide({ userlog ,logclose}) {
                 </div>
 
                 {
-                    // account ?
-                    //     <div className="flag">
-                    //         <LogoutIcon style={{ fontSize: 18, marginRight: 4 }} />
-                    //         <h3 onClick={() => userlog()} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
-                    //     </div>
-                    //     : 
+                    user ?
+                        <div className="flag">
+                            <LogoutIcon style={{ fontSize: 18, marginRight: 4 }} />
+                            <h3 onClick={(e) => userLogout()} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
+                        </div>
+                        : 
                         <NavLink to="/login">Sign in</NavLink>
                 }
 

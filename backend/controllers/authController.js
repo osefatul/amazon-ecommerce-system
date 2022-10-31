@@ -111,11 +111,11 @@ const verifyUser = async ( email, res) => {
 // Get user data from database using its email - PURPOSE: LOGIN
 const getUserByEmail = async (req, res) => {
 
-    const { email, password } = req.body;
+    // const { email, password } = req.body;
 
     try {
     //Check if email exists
-    const user = await UserSchema.findOne({ email });
+    const user = await UserSchema.findOne({ email:req.body.email });
     !user && res.status(404).json({ message: "User not found" });
 
 
@@ -124,15 +124,19 @@ const getUserByEmail = async (req, res) => {
     // }
 
     //Check if passwords match
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(404).json({ message: "Wrong Password" });
+
     
     const token = generateAuthToken(user)
+    
+    const { password, ...otherDetails } = user._doc;
 
     return res.status(200)
-    .json({ message: "Login successfully", accessJwtToken: token} );
+    .json({ user: { ...otherDetails },  accessJwtToken: token} );
     } catch (error) {
         console.log(error);
+        res.json({ status: "error", message: error.message });
     }
     };
 

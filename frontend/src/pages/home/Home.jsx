@@ -29,7 +29,7 @@ function Home() {
         setData(products)
     },[products])
     
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className='homePage'>
