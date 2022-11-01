@@ -50,10 +50,10 @@ function RightSide() {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">Shop By Category</NavLink>
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
-                <NavLink to="/" style={{ marginTop: 10 }}>Today's Deal</NavLink>
+                <NavLink to="/orders" style={{ marginTop: 10 }}>Orders history</NavLink>
                 {
                     user ? <NavLink to="/cart">Your Order</NavLink> : 
-                    <NavLink to="/login">Your Order</NavLink>
+                    <NavLink to="/login">Check your Cart</NavLink>
                 }
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
                 <div className="flag">
@@ -65,7 +65,7 @@ function RightSide() {
                     user ?
                         <div className="flag">
                             <LogoutIcon style={{ fontSize: 18, marginRight: 4 }} />
-                            <h3 onClick={ handleLogout} style={{ cursor: "pointer", fontWeight: 500 }}>Log Out</h3>
+                            <h3 onClick={ handleLogout} style={{ cursor: "pointer", fontWeight: 600 , fontSize: 16}}>Log Out</h3>
                         </div>
                         : 
                         <NavLink to="/login">Sign in</NavLink>

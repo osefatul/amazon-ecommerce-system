@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./product.css"
 import { products } from '../../utils/productData';
-
 import { Divider } from '@mui/material';
 import { useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -19,9 +18,9 @@ function Product() {
 
     const { id } = useParams();
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const {product, isLoading} = useSelector(state => state.products)
-
     const [data, setData] = useState(product)
 
 
@@ -31,11 +30,13 @@ function Product() {
 
 
     useEffect(()=>{
-        
         setData(product)
     },[product])
 
-
+    const buyNow = ()=>{
+        dispatch(addToCart(data))
+        navigate("/cart")
+    }
 
 
 
@@ -98,10 +99,13 @@ function Product() {
                     
                         <div className="cart_btn">
                             <button className="cart_btn1" 
-                            onClick={() => dispatch(addToCart(data))}
-                            
-                            >Add to Cart</button>
-                            <button className="cart_btn2">Buy Now</button>
+                                onClick={() => dispatch(addToCart(data))}>
+                                Add to Cart
+                            </button>
+
+                            <button className="cart_btn2" onClick={buyNow}>
+                                Buy Now
+                            </button>
                         </div>
 
                     </div>
