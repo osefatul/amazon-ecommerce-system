@@ -6,13 +6,12 @@
 .orderNow_section{
     width: 100%;
     min-height: calc(100vh - 90px);
-
     position: relative;
     display: flex;
     justify-content: center;
     padding-top:  120px;
     margin: 0 auto;
-
+    max-width: 2400px;
 }
 
 .orderNow_section .order_container{  
@@ -92,9 +91,12 @@
 }
 
 
-.Order_left_buy .order_items{
+.orderDetailsParent .order_items{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    /* Gap between first row and second row */
+    gap: 30px; 
 }
 
 
@@ -102,6 +104,7 @@
     /* padding: 10px 5px 20px 15px; */
     display: flex;
     gap: 15px;
+    
 
 }
 

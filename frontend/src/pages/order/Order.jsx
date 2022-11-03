@@ -36,6 +36,7 @@ return (
                         data.length ?
                         data.map(item => (
                             <div className='orderDetailsParent'>
+                                
                                 <div className="orderDetails">
 
                                     <div className="left_orderDetails">
@@ -71,6 +72,7 @@ return (
                                             </span>
                                         </p>
                                     </div>
+
                                 </div>
 
                                 <div className='order_items'>
@@ -101,6 +103,7 @@ return (
                                     }
 
                                 </div>
+
                             </div>
                         
                             )):

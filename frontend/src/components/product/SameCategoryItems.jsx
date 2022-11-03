@@ -7,7 +7,6 @@ import "./SameCategoryItems.css"
 function SameCategoryItems({category, dataId}) {
 
     const dispatch = useDispatch()
-
     const {productsBySameCategory} = useSelector(state => state.products)
     
     const similarProducts = productsBySameCategory.filter(
@@ -19,12 +18,17 @@ function SameCategoryItems({category, dataId}) {
     useEffect(()=>{
         dispatch(fetchingProductsSameCategory(category))
     },[category])
+    // },[dataId, category])
+    
 
 
 
     useEffect(()=>{
         setData(similarProducts)
-    },[dataId,productsBySameCategory, category, similarProducts])
+    // },[similarProducts, productsBySameCategory])
+},[dataId,productsBySameCategory, category, similarProducts])
+
+
 
 
     return (

@@ -8,8 +8,15 @@ const opts = { toJSON: { virtuals: true } };
 const productSchema  = new Schema({
     url:String,
     detailUrl:String,
-    title:Object,
-    price:Object,
+    title:{
+        shortTitle:String,
+        longTitle:String
+    },
+    price:{
+        mrp:Number,
+        cost:Number,
+        discount:String
+    },
     description:String,
     discount:String,
     tagline:String,

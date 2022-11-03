@@ -31,21 +31,21 @@ POST http://localhost:5000/v1/products/
 Content-Type: application/json
 
 { 
-        "url": "https://m.media-amazon.com/images/I/71GVODjIEJL._AC_SX679_.jpg",
-        "detailUrl": "https://m.media-amazon.com/images/I/71GVODjIEJL._AC_SX679_.jpg", 
+        "url": "https://m.media-amazon.com/images/I/310wIeLERZL._AC_.jpg",
+        "detailUrl": "https://m.media-amazon.com/images/I/310wIeLERZL._AC_.jpg", 
         "title": {
-            "shortTitle": "External Keyboard",
-            "longTitle": "Razer Huntsman Tournament Edition TKL Tenkeyless Gaming Keyboard: Fast Keyboard Switches - Linear Optical Switches - Chroma RGB Lighting - PBT Keycaps - Onboard Memory - Classic Black"
+            "shortTitle": "North Gym Adjustable Kettlebell",
+            "longTitle": ""
         }, 
         "price": {
-            "mrp": 279,
-            "cost": 223,
-            "discount": "23%"
+            "mrp": 30,
+            "cost": 23,
+            "discount": "17%"
         },
-        "description":  "Faster Than Traditional Mechanical Switches: Razer Linear Optical switch technology uses optical beam-based actuation, registering key presses at the speed of light (15-30% shorter actuation distance than other linear switches at 1.0 millimeter) Ultimate Personalization & Gaming Immersion with Razer Chroma: Fully syncs with popular games, Razer hardware, Philips Hue, and gear from 30 plus partners; supports 16.8 million colors on individually backlit keys Quality, Aluminum Construction: Covered with a matte, aluminum top frame for increased structural integrity Tournament-Ready Design: A tenkeyless design with a detachable USB-C cable provides a portable form-factor for on-the-go gamers Oil-Resistant Doubleshot PBT Keycaps: Made of textured, high-grade PBT for a more durable and textured finish less prone to long-term grime buildup Fully Programmable Macros: Razer Hypershift allows for all keys and keypress combinations to be remapped to execute complex commands" ,
-        "discount": "From 20% Off", 
-        "tagline": "Extra 10% Off",
-        "category": "Computer Devices"
+        "description": "Ergonomic design, stable triangle force, stronger scientific strength, more stability, stronger support and firmness. Push up bars main exercises are muscle groups such as the chest muscles, triceps, abdominal muscles and back muscles【Lightweight Muscle Builder】Triangle push up bars greatly enhance the stability and help you target specific muscle groups. The front and back two-wheel bracket of this AB exercise equipment can be folded. You can brings it wherever you go【Great for All Levels】This push up exercise equipment set fits for all fitness levels home gym workout, from beginners to advanced. No matter you are adults, men, women, or children, it is your ideal Ab and full body exerciser【What We Provide】Free shipping and free return, 2 x AB wheel & push-up bars Size: 7*7 in; 2 x Knee pad Size: 8*6.5 in; 2 x Pull up rope Size: 35; 100% satisfy if any issue! Contact Us】 Login your amazon account > choose 'Your orders' > find the order ID > click 'Contact seller'. We will provide you a totally satisfaction. Best Gift for Office and Home workout" ,
+        "discount": "From 17% Off", 
+        "tagline": "Extra 5% Off",
+        "category": "gym"
     }
 
 
@@ -57,6 +57,10 @@ Content-Type: application/json
 GET http://localhost:5000/v1/products/
 Content-Type: application/json
 
+
+### Search Products
+GET http://localhost:5000/v1/products/searchItems?min=10&max=200&category=gym
+Content-Type: application/json
 
 
 ### Get all Products of same category
@@ -71,10 +75,14 @@ Content-Type: application/json
 
 
 ### Update a specific Product
-PUT http://localhost:5000/v1/products/635a7ed10b2de6df085c29e7
+PUT http://localhost:5000/v1/products/6360e228d14e354089bc03f0
 Content-Type: application/json
 
 {
-    "category": "Computer & Electronics"
+        "category": "Kitchen"
 }
 
+
+### Get a specific Product
+DELETE http://localhost:5000/v1/products/635a49290b2de6df085c2956
+Content-Type: application/json

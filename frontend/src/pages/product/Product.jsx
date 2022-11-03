@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 // import { Logincontext } from "../context/Contextprovider";
 import moment from "moment";
-import { fetchingASpecificProduct } from '../../features/productSlice/productAction';
+import { fetchingASpecificProduct, fetchingProductsSameCategory } from '../../features/productSlice/productAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../components/footer/Footer';
 import SameCategoryItems from '../../components/product/SameCategoryItems';
@@ -24,14 +24,17 @@ function Product() {
     const [data, setData] = useState(product)
 
 
+
     useEffect(()=>{
         dispatch(fetchingASpecificProduct(id))
     },[id])
 
 
+
     useEffect(()=>{
         setData(product)
     },[product])
+
 
     const buyNow = ()=>{
         dispatch(addToCart(data))
@@ -121,7 +124,7 @@ function Product() {
 
             <div>
                 {
-                data.category &&
+                data?.category &&
                 <SameCategoryItems  dataId = {id} category={data.category}/>
                 }
             </div>

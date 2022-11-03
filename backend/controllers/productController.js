@@ -46,6 +46,28 @@ const getASpecificProduct = async (req, res) =>{
 }
 
 
+
+
+const searchProducts = async (req, res) =>{
+    const {min, max, category} = req.query;
+
+    try{
+    const findProducts = await ProductSchema.find({
+        category: category,
+        "price.cost": { $gt: min | 1, $lt: max || 999 }
+    })
+
+    res.status(200).json(findProducts)
+
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error);
+    }
+}
+
+
+
+
 const getASpecificCategoryProduct = async (req, res) =>{
 
     const {category} = req.query
@@ -78,10 +100,28 @@ const updateProduct = async (req, res) =>{
     
 }
 
+
+
+
+const deleteProduct = async (req, res) =>{
+    
+    try{
+        const Products = await ProductSchema.findByIdAndDelete(req.params.id);
+
+        res.status(200).json(Products);
+    }catch(error){
+        console.log(error);
+        res.status(500).json(error);
+    }
+    
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
     getASpecificProduct,
     updateProduct,
-    getASpecificCategoryProduct
+    deleteProduct,
+    getASpecificCategoryProduct,
+    searchProducts
 }

@@ -50,8 +50,8 @@ function Home() {
                         </div>
 
                         <div className="right_slide">
-                            <h4>Festive latest launches</h4>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/Jupiter/Launches/T3/DesktopGateway_CategoryCard2x_758X608_T3._SY608_CB639883570_.jpg" alt="rightimg" />
+                            <h4>Transform your workout</h4>
+                            <img src="https://images-na.ssl-images-amazon.com/images/G/01/sports/Okennel/Holiday/Gateway/2022_hol_desktop_Fitness2_379x304._SY304_CB610189864_.jpg" alt="rightimg" />
                             <a href="#!">see more</a>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ function Home() {
                     />
 
                     <div className="center_img">
-                        <img src="https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg" alt="" />
+                        <img src="https://m.media-amazon.com/images/I/6141k-vJ-vL._SX3000_.jpg" alt="" />
                     </div>
 
                     <Slide title="Best Seller" 
