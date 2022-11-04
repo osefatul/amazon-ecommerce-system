@@ -4,8 +4,8 @@ const router = express.Router();
 
 
 router.get("/same-category", getASpecificCategoryProduct)
-router.post("/", createProduct)
 router.get("/searchItems", searchProducts)
+router.post("/", createProduct)
 router.get("/", getAllProducts)
 router.get("/:id", getASpecificProduct)
 router.put("/:id", updateProduct)

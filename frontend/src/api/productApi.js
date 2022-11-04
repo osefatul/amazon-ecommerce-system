@@ -6,6 +6,7 @@ const getProductsUrl =  rootUrl + "products/";
 const deleteProductUrl = rootUrl + "products/";
 const updateProductUrl = rootUrl + "products/";
 const getProductsByCategoryUrl = "http://localhost:5000/v1/products/same-category";
+const searchFilteredProductUrl = "http://localhost:5000/v1/products/searchItems";
 
 
 
@@ -81,6 +82,22 @@ export const getProductsByCategory = async (category)=>{
             axios.defaults.withCredentials = true //for sending cookies.
             );
         // console.log(res/)
+        return res
+    }catch (error){
+        console.log(error)
+        return error;
+    }
+}
+
+
+
+
+export const searchFilteredProduct = async (min, max, category)=>{
+    try {
+        const res = await axios.get(searchFilteredProductUrl + `min=${min}&max=${max}&?category=${category}`, 
+            axios.defaults.withCredentials = true //for sending cookies.
+            );
+        console.log(res)
         return res
     }catch (error){
         console.log(error)

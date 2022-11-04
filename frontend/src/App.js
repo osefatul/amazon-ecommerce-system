@@ -11,6 +11,7 @@ import Product from './pages/product/Product';
 import Cart from "./pages/cart/Cart"
 import SuccessCheckout from './pages/successfulCheckout/SuccessCheckout';
 import Order from './pages/order/Order';
+import FilterProduct from './pages/filterProducts/FilterProduct';
 
 function App() {
   return (
@@ -56,6 +57,15 @@ function App() {
             <>
               <Header/>
               <Order/>
+          </>}/>
+
+
+
+          <Route exact path="/category" 
+            element={
+            <>
+              <Header/>
+              <FilterProduct/>
           </>}/>
 
       </Routes>

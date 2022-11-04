@@ -5,7 +5,9 @@ const initialState = {
     error: "",
     product: {},
     products: [],
-    productsBySameCategory: []
+    productsBySameCategory: [],
+    productsFiltered: []
+
 }
 
 const productSlice = createSlice ({
@@ -35,6 +37,11 @@ const productSlice = createSlice ({
             state.error = ""
             state.productsBySameCategory = action.payload
         },
+        fetchingFilteredProductsSuccess: (state, action)=>{
+            state.isLoading = false
+            state.error = ""
+            state.productsFiltered = action.payload
+        },
 
 
         productsFail: (state, action)=>{
@@ -51,7 +58,8 @@ export const  {
     productPending,
     fetchingProductsSuccess,
     fetchingAProductSuccess, 
-    fetchingSameCatProductsSuccess, 
+    fetchingSameCatProductsSuccess,
+    fetchingFilteredProductsSuccess,
     productsFail
 } = actions
 
