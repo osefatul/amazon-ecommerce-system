@@ -11,7 +11,7 @@ const initialState = {
 }
 
 const productSlice = createSlice ({
-    name: 'hotels',
+    name: 'products',
     initialState,
 
     reducers: {

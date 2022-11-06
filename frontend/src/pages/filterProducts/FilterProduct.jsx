@@ -2,25 +2,58 @@ import React, { useState } from 'react'
 import "./filterProduct.css"
 import Footer from '../../components/footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchingSearchFilteredProduct } from '../../features/productSlice/productAction'
+import { fetchingProducts, fetchingSearchFilteredProduct } from '../../features/productSlice/productAction'
+import RightSide from '../../components/filterProduct/RightSide'
+import { useEffect } from 'react'
 
+const initialValues = {
+    min: undefined,
+    max: undefined,
+}
 
 
 function FilterProduct() {
     const dispatch = useDispatch()
-    const [category, setCategory] = useState("Books")
+    const [category, setCategory] = useState()
+    const [values, setValues] = useState(initialValues)
 
-
-    const handleOnChange = (e) =>{
-    setCategory(e.target.value)
     
-    }
+// ------------- with price tags ------------------------------
+    const handleOnChange = (e) =>{
+    setCategory(e.target.value)}
 
 
     const handlePrice = (min, max, e) =>{
-        e.preventDefault();
-        dispatch(fetchingSearchFilteredProduct(min, max, category))
+            dispatch(fetchingSearchFilteredProduct(min, max, category))
     }
+
+
+
+
+// ------------- using input field ------------------------------
+    const handleOnChangeButton = (e) =>{
+        setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+        console.log(values)
+    }
+
+    const handleButton = (e) =>{
+        e.preventDefault();
+
+        const min = values.min;
+        const max = values.max;
+        
+        dispatch(
+            fetchingSearchFilteredProduct(
+            min, 
+            max, 
+            category
+        ))
+    }
+
+
+    useEffect(()=>{
+        dispatch(fetchingProducts())
+    },[])
 
     return (
         <div className='filterPage'>
@@ -34,9 +67,10 @@ function FilterProduct() {
 
                         <div className='catElements'>
                             <input type="radio" 
-                            name='category' value="Books"
+                            name='category' 
+                            value="Books"
                             onChange={handleOnChange}
-                            checked
+                        
                             />
                             <label htmlFor="Books">Books</label>
                         </div>
@@ -44,13 +78,15 @@ function FilterProduct() {
                         <div className='catElements'>
                             <input type="radio" 
                             onChange={handleOnChange}
-                            name='category' value="gym" />
+                            name='category' 
+                            value="gym" />
                             <label htmlFor="gym">Gym</label>
                         </div>
 
                         <div className='catElements'>
                             <input type="radio" 
-                            name='category' value="Kitchen"
+                            name='category' 
+                            value="Kitchen"
                             onChange={handleOnChange}
                             />
                             <label htmlFor="Kitchen">Kitchen</label>
@@ -66,7 +102,8 @@ function FilterProduct() {
                         </div>
 
                         <div className='catElements'>
-                            <input type="radio" name='category' 
+                            <input type="radio" 
+                            name='category' 
                             onChange={handleOnChange}
                             value='mobile'/>
                             <label htmlFor="mobile">Mobile</label>
@@ -74,17 +111,14 @@ function FilterProduct() {
 
                     </form>
 
-
-
                     <div className='rangeText'>
                         <h3>Price</h3>
-                        <p onClick={()=>handlePrice(10)}>Under $10</p>
-                        <p>$10 to $15</p>
-                        <p>$15 to $25</p>
-                        <p>$25 to $35</p>
-                        <p>$35 & above</p>
+                        <p onClick={(e)=>handlePrice(1, 10)}>Under $10</p>
+                        <p onClick={(e)=>handlePrice(10, 15)}>$10 to $15</p>
+                        <p onClick={(e)=>handlePrice(15, 25)}>$15 to $25</p>
+                        <p onClick={(e)=>handlePrice(25, 35)}>$25 to $35</p>
+                        <p onClick={(e)=>handlePrice(35, 99999 )}>$35 & above</p>
                     </div>
-
 
                     <div className='rangeInput'>
                         
@@ -92,17 +126,22 @@ function FilterProduct() {
                             <input 
                             type="tex" 
                             placeholder='$ Min' 
-                            name='min'/>
+                            name='min'
+                            onChange = {handleOnChangeButton}
+                            />
                         </div>
 
                         <div className='minMaxInput'>
                             <input 
                             type="text" 
-                            placeholder='$ Max' 
-                            name='max'/>
+                            placeholder='$ Max'
+                            name='max'
+                            onChange = {handleOnChangeButton}
+                            
+                            />
                         </div>
 
-                        <button>Go</button>
+                        <button onClick={handleButton}>Go</button>
 
                     </div>
 
@@ -111,7 +150,7 @@ function FilterProduct() {
 
 
                 <div className="rightSide">
-                    right side
+                    <RightSide />
                 </div>
 
 

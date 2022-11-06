@@ -1,0 +1,47 @@
+.topText h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.topText p{
+    font-size: 12px;
+    color: gray;
+    padding-bottom: 1rem;
+}
+
+.productContainer{
+    display: flex;
+    padding: 0.2rem 0;
+}
+
+.productContainer .productImg {
+    background: #F8F8F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+
+.productContainer .productDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    border: 1px solid #F8F8F8;
+}
+
+.productContainer .productDetails p{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.productContainer .productDetails span {
+    font-size: 0.7rem;
+}
+
+.noItemFound{
+padding-top: 3rem;
+}

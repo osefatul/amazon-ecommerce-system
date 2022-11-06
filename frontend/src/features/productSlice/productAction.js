@@ -102,7 +102,7 @@ export const fetchingSearchFilteredProduct = (min, max, category) => async (disp
     try {
         const result = await searchFilteredProduct(min, max, category);
 
-        dispatch(fetchingFilteredProductsSuccess(result.data))
+        dispatch(fetchingProductsSuccess(result.data))
     }catch(error){
         console.log(error)
         dispatch(productsFail(error))

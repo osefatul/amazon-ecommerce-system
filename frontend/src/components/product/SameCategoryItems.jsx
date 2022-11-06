@@ -17,7 +17,7 @@ function SameCategoryItems({category, dataId}) {
 
     useEffect(()=>{
         dispatch(fetchingProductsSameCategory(category))
-    },[category])
+    },[category, dispatch])
     // },[dataId, category])
     
 

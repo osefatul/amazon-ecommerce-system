@@ -93,9 +93,10 @@ export const getProductsByCategory = async (category)=>{
 
 
 export const searchFilteredProduct = async (min, max, category)=>{
+    console.log(min, max, category)
     try {
-        const res = await axios.get(searchFilteredProductUrl + `min=${min}&max=${max}&?category=${category}`, 
-            axios.defaults.withCredentials = true //for sending cookies.
+        const res = await axios.get(
+            searchFilteredProductUrl + `?min=${min}&max=${max}&category=`+category, 
             );
         console.log(res)
         return res

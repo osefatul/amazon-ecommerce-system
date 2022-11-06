@@ -4,7 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 // import { products } from '../../../utils/productData';
 import { Divider } from '@mui/material';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const responsive = {
     desktop: {
@@ -22,6 +22,8 @@ const responsive = {
 };
 
 const Slide = ({ title, products}) => {
+    const navigate = useNavigate()
+
 
 
     return (
@@ -29,7 +31,7 @@ const Slide = ({ title, products}) => {
             
             <div className="products_deal">
                 <h3>{title}</h3>
-                <button className="view_btn">View All</button>
+                <button onClick={()=> navigate('/category')} className="view_btn">View All</button>
             </div>
             <Divider />
 
