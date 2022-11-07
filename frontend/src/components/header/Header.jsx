@@ -35,8 +35,7 @@ const Header = () => {
 
     useEffect(() => {
         localStorage.getItem('user') && setUser(JSON.parse(localStorage.getItem('user'))) 
-        
-        user && dispatch(userSuccess(user))
+        // user && dispatch(userSuccess(user))
     }, [])
 
 
@@ -75,6 +74,7 @@ const Header = () => {
     const handleLogout = () => {
         // e.preventDefault()
         localStorage.removeItem("user")
+        localStorage.removeItem("accessJWT")
         window.location.reload()
     }
 

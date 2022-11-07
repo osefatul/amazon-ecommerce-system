@@ -12,6 +12,7 @@ import Cart from "./pages/cart/Cart"
 import SuccessCheckout from './pages/successfulCheckout/SuccessCheckout';
 import Order from './pages/order/Order';
 import FilterProduct from './pages/filterProducts/FilterProduct';
+import ProtectedRoutes from './protectedRoutes/ProtectedRoutes';
 
 function App() {
   return (
@@ -26,10 +27,10 @@ function App() {
             <Home/>
           </>}/>
 
-          <Route exact path="/register" element={<SignUp/>}/>
-          <Route exact path="/login" element={<SignIn/>}/>
+          <Route  path="/register" element={<SignUp/>}/>
+          <Route  path="/login" element={<SignIn/>}/>
 
-          <Route exact path="/products/:id" 
+          <Route  path="/products/:id" 
             element={
             <>
               <Header/>
@@ -37,36 +38,41 @@ function App() {
           </>}/>
 
 
-          <Route exact path="/cart" 
-            element={
-            <>
-              <Header/>
-              <Cart/>
-          </>}/>
-
-
-          
-          <Route exact path="/successfulCheckout" 
-            element={
-            <>
-              <SuccessCheckout/>
-          </>}/>
-
-          <Route exact path="/orders" 
-            element={
-            <>
-              <Header/>
-              <Order/>
-          </>}/>
-
-
-
-          <Route exact path="/category" 
+          <Route path="/category" 
             element={
             <>
               <Header/>
               <FilterProduct/>
           </>}/>
+
+
+
+
+          <Route path='/' element = {<ProtectedRoutes/>}>
+
+
+            <Route  path="/cart" 
+              element={
+              <>
+                <Header/>
+                <Cart/>
+            </>}/>
+
+            <Route  path="/successfulCheckout" 
+              element={
+              <>
+                <SuccessCheckout/>
+            </>}/>
+
+            <Route  path="/orders" 
+              element={
+              <>
+                <Header/>
+                <Order/>
+            </>}/>
+
+
+          </Route>
 
       </Routes>
     </div>

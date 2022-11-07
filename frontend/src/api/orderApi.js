@@ -19,7 +19,7 @@ export const fetchOrders = async()=>{
 export const fetchAnOrder = async(id)=>{
     try{
         const res = await axios.get(FetchingOrdersUrl + id)
-        console.log(res)
+        // console.log(res)
         return res
     }catch(error){
         console.log(error)

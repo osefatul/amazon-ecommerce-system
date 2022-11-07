@@ -93,12 +93,12 @@ export const getProductsByCategory = async (category)=>{
 
 
 export const searchFilteredProduct = async (min, max, category)=>{
-    console.log(min, max, category)
+    // console.log(min, max, category)
     try {
         const res = await axios.get(
             searchFilteredProductUrl + `?min=${min}&max=${max}&category=`+category, 
             );
-        console.log(res)
+        // console.log(res)
         return res
     }catch (error){
         console.log(error)

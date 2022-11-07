@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 function Order() {
 
     const dispatch = useDispatch()
-    const {user} = useSelector(state => state.login)
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
     const {order} = useSelector(state => state.order)
     const [data, setData] = useState(order) 
 

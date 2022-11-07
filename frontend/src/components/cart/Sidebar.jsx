@@ -13,7 +13,7 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
     const [val, setVal] = useState(false);
     const [price, setPrice] = useState(0);
     const { cartItems} = useSelector(state => state.cart)
-    const { user} = useSelector(state => state.login)
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
 
     // const history = useHistory("");
