@@ -25,4 +25,5 @@ Amazon clone system has several amazing features as below:
 - View All Page: listed all products on the page where you can filter products by category and prices ranges.
 - Cart Page: full of different functionalities such as, increasing and decreasing quantity of products, deleting products, buying products right now and navigating to checkout page.
 - Order Page: You can view history of all orders.
+- Similar Items: This component is rendered on a product specific page, displaying all related items to the product.
 - Smooth Animated Sidebar where you can navigate through pages.
