@@ -1,9 +1,13 @@
 import axios from "axios"
 
-const rootUrl = "http://localhost:5000/v1/";
+// const rootUrl = "http://localhost:5000/v1/";
+// const registerUrl = rootUrl + "auth/";
+// const loginUrl = rootUrl + "auth/login";
+
+
+const rootUrl = "https://amazon-node-clone.herokuapp.com/v1/";
 const registerUrl = rootUrl + "auth/";
 const loginUrl = rootUrl + "auth/login";
-
 
 //Register a user
 export const userRegistration = async (formData)=>{

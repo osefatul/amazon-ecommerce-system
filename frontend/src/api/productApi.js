@@ -1,12 +1,22 @@
 import axios from "axios"
 
-const rootUrl = "http://localhost:5000/v1/"
+// const rootUrl = "http://localhost:5000/v1/"
+// const createProductUrl = rootUrl + "products/";
+// const getProductsUrl =  rootUrl + "products/";
+// const deleteProductUrl = rootUrl + "products/";
+// const updateProductUrl = rootUrl + "products/";
+// const getProductsByCategoryUrl = "http://localhost:5000/v1/products/same-category";
+// const searchFilteredProductUrl = "http://localhost:5000/v1/products/searchItems";
+
+
+
+const rootUrl = "https://amazon-node-clone.herokuapp.com/v1/"
 const createProductUrl = rootUrl + "products/";
 const getProductsUrl =  rootUrl + "products/";
 const deleteProductUrl = rootUrl + "products/";
 const updateProductUrl = rootUrl + "products/";
-const getProductsByCategoryUrl = "http://localhost:5000/v1/products/same-category";
-const searchFilteredProductUrl = "http://localhost:5000/v1/products/searchItems";
+const getProductsByCategoryUrl = "https://amazon-node-clone.herokuapp.com/v1/products/same-category";
+const searchFilteredProductUrl = "https://amazon-node-clone.herokuapp.com/v1/products/searchItems";
 
 
 
