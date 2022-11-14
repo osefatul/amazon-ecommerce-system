@@ -19,7 +19,10 @@ This is a full stack amazon system clone. you can check the live website [here](
 ### Features
 Amazon clone system has several amazing features as below:
 
-- It has a main page where you can find products animated in a horizontal layouts.
-- It has listed all products on the page where you can filter products by category and prices ranges.
-- It has a smooth animated sidebar where you can navigate through pages.
-- It has a cart page full of different functionalities such as, increasing and decreasing quantity of products, deleting products, buying products right now and navigating to checkout page.
+- Sign in Page: You can Sign in with your credentials.
+- Sign up Page: Registering new account.
+- Main page: where you can find products animated in a horizontal layouts.
+- View All Page: listed all products on the page where you can filter products by category and prices ranges.
+- Cart Page: full of different functionalities such as, increasing and decreasing quantity of products, deleting products, buying products right now and navigating to checkout page.
+- Order Page: You can view history of all orders.
+- Smooth Animated Sidebar where you can navigate through pages.
