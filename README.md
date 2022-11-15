@@ -1,6 +1,9 @@
 # Amazon E-commerce System
 
-This is a full stack amazon system clone. you can check the live website [here](https://amazon-ecommerce-system.netlify.app/).
+Click [here](https://amazon-ecommerce-system.netlify.app/) for live demo
+
+### Intro
+This is a full stack amazon system clone. The purpose of this app is to find out how amazon is using thier cutting-edge technologies for e-commerce purpose.
 
 ### Dependencies
  #### Frontend
