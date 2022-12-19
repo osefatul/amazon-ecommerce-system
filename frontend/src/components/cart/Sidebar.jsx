@@ -39,7 +39,7 @@ const Sidebar = ({ item, cartTotalQuantity }) => {
         const res = await axios({
             method:"post", 
             // url:"http://localhost:5000/v1/payments/" , 
-            url:"https://amazon-node-clone.herokuapp.com/v1/payments/" , 
+            url:"https://amazon-ecommerce-system-mern.herokuapp.com/v1/payments/" , 
             data:{cartItems, userId:user._id }
         })
 

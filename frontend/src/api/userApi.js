@@ -5,7 +5,7 @@ import axios from "axios"
 // const loginUrl = rootUrl + "auth/login";
 
 
-const rootUrl = "https://amazon-node-clone.herokuapp.com/v1/";
+const rootUrl = "https://amazon-ecommerce-system-mern.herokuapp.com/v1/";
 const registerUrl = rootUrl + "auth/";
 const loginUrl = rootUrl + "auth/login";
 

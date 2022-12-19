@@ -3,7 +3,7 @@ import axios from "axios"
 // const FetchingOrdersUrl = "http://localhost:5000/v1/orders/"
 
 
-const FetchingOrdersUrl = "https://amazon-node-clone.herokuapp.com/v1/orders/"
+const FetchingOrdersUrl = "https://amazon-ecommerce-system-mern.herokuapp.com/v1/orders/"
 
 
 

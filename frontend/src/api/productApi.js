@@ -10,13 +10,13 @@ import axios from "axios"
 
 
 
-const rootUrl = "https://amazon-node-clone.herokuapp.com/v1/"
+const rootUrl = "https://amazon-ecommerce-system-mern.herokuapp.com/v1/"
 const createProductUrl = rootUrl + "products/";
 const getProductsUrl =  rootUrl + "products/";
 const deleteProductUrl = rootUrl + "products/";
 const updateProductUrl = rootUrl + "products/";
-const getProductsByCategoryUrl = "https://amazon-node-clone.herokuapp.com/v1/products/same-category";
-const searchFilteredProductUrl = "https://amazon-node-clone.herokuapp.com/v1/products/searchItems";
+const getProductsByCategoryUrl = "https://amazon-ecommerce-system-mern.herokuapp.com/v1/products/same-category";
+const searchFilteredProductUrl = "https://amazon-ecommerce-system-mern.herokuapp.com/v1/products/searchItems";
 
 
 
