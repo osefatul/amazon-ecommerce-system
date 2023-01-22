@@ -1,7 +1,7 @@
 # Amazon E-commerce System
 
 ### Intro
-The purpose of this app is to replicate the full stack of Amazon's system and investigate how Amazon utilizes advanced technologies for e-commerce.
+The purpose of this app is to replicate the full stack of Amazon's system, meaning that it aims to recreate all the different components and layers that make up Amazon's e-commerce platform. This includes the front-end interface that customers interact with, the back-end systems that manage and process orders, and etc. 
 
 ### Live
 Click [here](https://amazon-ecommerce-system.netlify.app/) for live demo
